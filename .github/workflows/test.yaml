@@ -9,21 +9,7 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    permissions:
-     issues: write
     steps:
-       - name: Create Issue Comment
-         uses: actions/github-script@v5
-         with:
-            script: |
-              github.rest.issues.createComment({
-                owner: "assignUser",
-                repo: "test-repo-a",
-                issue_number: 2,
-                body: 
-                  `@assignUser It's time to renew your 'RRT_TOKEN'
-                  - grant both repo and workflow access
-                  - copy token to \`pkgcheck-action\` repo secrets`
-              })
-
-
+       - run: echo 'head ref ${{ github.head_ref || 2}}'
+       - run: echo "ref ${{ github.ref || 2}}"
+       
