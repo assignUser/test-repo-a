@@ -26,4 +26,4 @@ jobs:
           remove.packages("arrow")
           
           # install from source
-          install.packages("arrow", type = "source)
+          install.packages("arrow", type = "source")
