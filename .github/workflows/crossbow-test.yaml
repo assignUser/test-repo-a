@@ -7,18 +7,16 @@ on:
 
 jobs:        
   step1:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
-      - uses: r-lib/actions/setup-r@v2
-        with:
-          use-public-rspm: true
-          
-      - shell: Rscript {0}
-        run: |
-          Sys.setenv(ARROW_R_DEV = TRUE, LIBARROW_BINARY= FALSE, FORCE_BUNDLED_BUILD = TRUE)
-          # install deps as binary
-          install.packages("arrow")
-          remove.packages("arrow")
-
-          # install from source
-          install.packages("arrow", type = "source")
+        - name: Trigger pkgcheck-action build
+          uses: actions/github-script@v5
+          with:
+            github-token: ${{ secrets.ADBC_DISPATCH }}
+            script: |
+              await github.rest.actions.createWorkflowDispatch({
+                owner: 'assignUser',
+                repo: 'test-repo-b',
+                workflow_id: 'test1.yaml',
+                ref: 'main',
+              });
