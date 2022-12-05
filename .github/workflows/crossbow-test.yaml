@@ -14,16 +14,11 @@ jobs:
           use-public-rspm: true
           
       - shell: Rscript {0}
-        env:
-          ARROW_R_DEV: true
-          #NOT_CRAN: true
-          #FORCE_AUTOBREW: false
-          LIBARROW_BINARY: false
-          FORCE_BUNDLED_BUILD: TRUE
         run: |
+          Sys.setenv(ARROW_R_DEV = TRUE, LIBARROW_BINARY= FALSE, FORCE_BUNDLED_BUILD = TRUE)
           # install deps as binary
           install.packages("arrow")
           remove.packages("arrow")
-          
+
           # install from source
           install.packages("arrow", type = "source")
