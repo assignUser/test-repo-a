@@ -14,5 +14,10 @@ jobs:
           install-r: false
       - shell: Rscript {0}
         run: |
-          Sys.setenv(ARROW_R_DEV = TRUE, LIBARROW_BINARY= FALSE)
-          install.packages("arrow",  type = "source")
+          # install deps as binary
+          install.packages("arrow")
+          remove.packages("arrow")
+          
+          # install from source
+          Sys.setenv(ARROW_R_DEV = TRUE, LIBARROW_BINARY= FALSE, FORCE_BUNDLED_BUILD = TRUE)
+          install.packages("arrow")
