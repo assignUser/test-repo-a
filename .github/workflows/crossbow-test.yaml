@@ -7,18 +7,9 @@ on:
 
 jobs:        
   step1:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v3
-        with:
-          ref: main
-      - run: git rev-parse HEAD 
-      - run: sleep 120
-  step2:
-    needs: step1
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          ref: main
-      - run: git rev-parse HEAD 
+      - shell: Rscript {0}
+        run: |
+          Sys.setenv(ARROW_R_DEV = TRUE, LIBARROW_BINARY= FALSE)
+          install.packages("arrow",  type = "source")
