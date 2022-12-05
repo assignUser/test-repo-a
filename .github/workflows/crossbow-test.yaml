@@ -16,8 +16,8 @@ jobs:
       - shell: Rscript {0}
         env:
           ARROW_R_DEV: true
-          NOT_CRAN: true
-          FORCE_AUTOBREW: false
+          #NOT_CRAN: true
+          #FORCE_AUTOBREW: false
           LIBARROW_BINARY: false
           FORCE_BUNDLED_BUILD: TRUE
         run: |
