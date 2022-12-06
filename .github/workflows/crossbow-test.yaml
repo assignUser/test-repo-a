@@ -2,6 +2,10 @@ name: Dev PR
 on:
   workflow_dispatch:
   pull_request:
+     types:
+      - opened
+      - edited
+      - synchronize
   push:
     paths:
       - .github/workflows/crossbow-test.yaml
