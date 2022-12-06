@@ -1,6 +1,7 @@
 name: Dev PR
 on:
   workflow_dispatch:
+  pull_request:
   push:
     paths:
       - .github/workflows/crossbow-test.yaml
@@ -9,14 +10,4 @@ jobs:
   step1:
     runs-on: ubuntu-latest
     steps:
-        - name: Trigger pkgcheck-action build
-          uses: actions/github-script@v5
-          with:
-            github-token: ${{ secrets.ADBC_DISPATCH }}
-            script: |
-              await github.rest.actions.createWorkflowDispatch({
-                owner: 'assignUser',
-                repo: 'test-repo-b',
-                workflow_id: 'test1.yaml',
-                ref: 'main',
-              });
+        - run: echo "${{ github.event.action }}"
