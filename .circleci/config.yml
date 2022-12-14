@@ -9,19 +9,19 @@ jobs:
     docker:
       - image: cimg/base:stable
     steps:
-    - checkout
-    - restore_cache:
-        name: Restore Dependencies
-        keys: 
-          - cache-{{ checksum ".circleci/config.yml" }}-{{ checksum "test.sh" }}
-    - run:
-        command: bash test.sh
-        name: Do things
-    - save_cache:
-        name: Save Dependencies
-        key: my-cache
-        paths:
-          - test.R # this would of course be the homebrew cache or w/e
+      - checkout
+      - restore_cache:
+          name: Restore Dependencies
+          keys: 
+            - cache-{{ checksum ".circleci/config.yml" }}-{{ checksum "test.sh" }}
+      - run:
+          command: bash test.sh
+          name: Do things
+      - save_cache:
+          name: Save Dependencies
+          key: my-cache
+          paths:
+            - test.R # this would of course be the homebrew cache or w/e
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
