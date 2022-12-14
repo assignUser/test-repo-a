@@ -19,7 +19,7 @@ jobs:
           name: Do things
       - save_cache:
           name: Save Dependencies
-          key: my-cache
+          key: cache-{{ checksum ".circleci/config.yml" }}-{{ checksum "test.sh" }}
           paths:
             - test.R # this would of course be the homebrew cache or w/e
 
