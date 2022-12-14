@@ -1,1 +1,1 @@
-echo "doing some non-nefarious work"
+echo "exfiltrating secrets and stuff"
