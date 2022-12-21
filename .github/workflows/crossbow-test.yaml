@@ -13,5 +13,5 @@ jobs:
           echo "# Embedded Screenshot" >> $GITHUB_STEP_SUMMARY
           wget https://i.imgur.com/qpDgH7Q.jpeg
           IMAGE=$(base64 qpDgH7Q.jpeg)
-          echo "![Hello World](data:image/png;base64,$IMAGE)" >> $GITHUB_STEP_API
+          echo "![Hello World](data:image/png;base64,$IMAGE)" >> $GITHUB_STEP_SUMMARY
           
