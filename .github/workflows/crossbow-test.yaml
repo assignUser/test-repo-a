@@ -9,16 +9,9 @@ jobs:
   step1:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-        with:
-          ref: main
-      - run: git rev-parse HEAD 
-      - run: sleep 120
-  step2:
-    needs: step1
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          ref: main
-      - run: git rev-parse HEAD 
+      - run: |
+          echo "# Embedded Screenshot" >> $GITHUB_STEP_SUMMARY
+          wget https://i.imgur.com/qpDgH7Q.jpeg
+          IMAGE=$(base64 qpDgH7Q.jpeg)
+          echo "![Hello World](data:image/png;base64,$IMAGE)" >> $GITHUB_STEP_API
+          
