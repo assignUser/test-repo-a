@@ -10,9 +10,6 @@ jobs:
     runs-on: macos-11
     steps:
       - run: |
+          brew install python@3.11
           brew update
-          brew --version
-          brew unlink python@2 || true
-          brew config
-          brew doctor || true
           brew install python@3.11
