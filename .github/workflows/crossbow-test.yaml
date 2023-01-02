@@ -6,13 +6,19 @@ on:
       - .github/workflows/crossbow-test.yaml
 
 jobs:        
-  step1:
+  macos11:
     runs-on: macos-11
     steps:
       - run: |
-          brew install python@3.11
           brew update
-          brew install --overwrite python@3.11
+          brew install python@3.11
         env:
           HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK: true
-       
+  macos12:
+     runs-on: macos-12
+     steps:
+       - run: |
+           brew update
+           brew install python@3.11
+         env:
+           HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK: true      
