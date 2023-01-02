@@ -13,3 +13,6 @@ jobs:
           brew install python@3.11
           brew update
           brew install python@3.11
+        env:
+          HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK: true
+       
