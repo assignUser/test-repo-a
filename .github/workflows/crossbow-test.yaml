@@ -13,5 +13,5 @@ jobs:
           echo $SECOND
         env:
           FIRST: "THIS IS THE END"
-          SECOND: "IS ${FIRST}?"
+          SECOND: "IS ${{env.FIRST}}?"
 
