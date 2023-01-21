@@ -7,18 +7,11 @@ on:
 
 jobs:        
   macos11:
-    runs-on: macos-11
+    runs-on: ubuntu-latest
     steps:
       - run: |
-          brew update
-          brew install python@3.11
+          echo $SECOND
         env:
-          HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK: true
-  macos12:
-     runs-on: macos-12
-     steps:
-       - run: |
-           brew update
-           brew install python@3.11
-         env:
-           HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK: true      
+          FIRST: "THIS IS THE END"
+          SECOND: "IS ${FIRST}?"
+
