@@ -11,7 +11,8 @@ jobs:
     steps:
       - run: |
           mkdir base
-          touch base/test.R
+          echo "changed file" >> base/test.R
       - uses: actions/checkout@v3
         with:
           path: base
+      - run: cat base/test.R
