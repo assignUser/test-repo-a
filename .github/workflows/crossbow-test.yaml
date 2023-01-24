@@ -10,23 +10,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          mkdir base
-          echo "changed file" >> base/test.R
-      - uses: actions/checkout@v3
-        with:
-          path: velox
-      - uses: actions/upload-artifact@v3
-        with:
-          path: velox
-          name: velox
-  test:
-    needs: macos11
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/download-artifact@v3
-        with:
-          name: velox
-          
-      - run: |
-          ls 
-          ls velox
+          echo "${{ runner.os }}"
+          echo "${{ toJSON(runner) }}"
