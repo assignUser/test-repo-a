@@ -10,8 +10,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo "$SECOND"
-        env:
-          FIRST: "THIS IS THE END"
-          SECOND: "IS $FIRST?"
-
+          echo "${{ github.sha }}"
