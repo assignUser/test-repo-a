@@ -20,7 +20,7 @@ jobs:
           path: velox
           name: velox
   test:
-    needs: macoss11
+    needs: macos11
     runs-on: ubuntu-latest
     steps:
       - uses: actions/download-artifact@v3
