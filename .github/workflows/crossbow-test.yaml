@@ -11,4 +11,4 @@ jobs:
     steps:
       - run: |
           echo "${{ runner.os }}"
-          echo "${{ toJSON(runner) }}"
+          echo "${{ toJSON(job) }}"
