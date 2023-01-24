@@ -15,4 +15,7 @@ jobs:
       - uses: actions/checkout@v3
         with:
           path: base
-      - run: cat base/test.R
+      - uses: actions/upload-artifact@v3
+        with:
+          path: velox
+          name: velox
