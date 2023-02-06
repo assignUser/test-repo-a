@@ -9,12 +9,4 @@ jobs:
   macos11:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-        with:
-          repository: facebookincubator/velox
-
-      - run: ls .github/workflows
-      - uses: actions/checkout@v3
-        with:
-          repository: assignUser/velox
-      - run: ls .github/workflows
+      - run: sudo apt update && sudo apt install -y libthrift
