@@ -9,4 +9,4 @@ jobs:
   macos11:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "${{ false || 'some' + github.workspace }}"
+      - run: echo "${{ join(['some', github.workspace]) }}"
