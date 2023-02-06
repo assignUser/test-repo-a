@@ -9,4 +9,4 @@ jobs:
   macos11:
     runs-on: ubuntu-latest
     steps:
-      - run: sudo apt update && sudo apt install -y libthrift
+      - run: sudo apt update && sudo apt install -y libthrift-dev
