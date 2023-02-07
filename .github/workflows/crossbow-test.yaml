@@ -9,8 +9,8 @@ jobs:
   macos11:
     runs-on: macos-11
     steps:
-      - run: sysctl -a | grep "avx|bmi|f16c"
+      - run: sysctl -a | grep machdep.cpu.features
   macos12:
     runs-on: macos-12
     steps:
-      - run: sysctl -a | grep "avx|bmi|f16c"
+      - run: sysctl -a | grep machdep.cpu.features
