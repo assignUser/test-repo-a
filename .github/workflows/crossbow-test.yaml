@@ -9,4 +9,7 @@ jobs:
   macos11:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "test"
+      - run: |
+         echo "${{ true && '' || 'false' }}"
+         echo "${{ true && ' ' || 'false' }}"
+         echo "${{ true && 'a' || 'false' }}"
