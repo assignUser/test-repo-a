@@ -7,10 +7,6 @@ on:
 
 jobs:        
   macos11:
-    runs-on: macos-11
+    runs-on: ubuntu-latest
     steps:
-      - run: sysctl -a | grep machdep.cpu.features
-  macos12:
-    runs-on: macos-12
-    steps:
-      - run: sysctl -a | grep machdep.cpu.features
+      - run: echo "${{ github.event.pull_request.head.sha || '' }}"
