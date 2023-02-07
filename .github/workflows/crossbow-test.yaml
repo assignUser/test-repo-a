@@ -7,9 +7,10 @@ on:
 
 jobs:        
   macos11:
-    runs-on: ubuntu-latest
+    runs-on: macos-11
     steps:
-      - run: |
-         echo "${{ true && '' || 'false' }}"
-         echo "${{ true && ' ' || 'false' }}"
-         echo "${{ true && 'a' || 'false' }}"
+      - run: sysctl -a | grep "avx|bmi|f16c"
+  macos12:
+    runs-on: macos-12
+    steps:
+      - run: sysctl -a | grep "avx|bmi|f16c"
