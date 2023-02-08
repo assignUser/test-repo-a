@@ -13,5 +13,5 @@ jobs:
         with:
           ref: ${{ github.event.pull_request.head.sha || '' }}
       - run: |
-          git remote -v
+          git fetch origin
           git merge-base origin/main HEAD
