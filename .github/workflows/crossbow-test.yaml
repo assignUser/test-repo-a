@@ -14,4 +14,4 @@ jobs:
           ref: ${{ github.event.pull_request.head.sha || '' }}
       - run: |
           git fetch origin
-          git merge-base origin/assignuser-patch-2 HEAD
+          git merge-base origin/assignUser-patch-2 HEAD
