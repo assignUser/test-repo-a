@@ -1,6 +1,7 @@
 name: Dev PR
 on:
   workflow_dispatch:
+  pull_request:
   push:
     paths:
       - .github/workflows/crossbow-test.yaml
