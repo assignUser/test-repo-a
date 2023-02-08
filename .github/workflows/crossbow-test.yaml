@@ -10,6 +10,12 @@ jobs:
   macos11:
     runs-on: ubuntu-latest
     steps:
-      - run: |
-          echo "${{ github.base_ref }}"
-          echo "${{ github.head_ref }}"
+      - uses: actions/checout@v3
+        with:
+          repository: assignUser/velox
+          ref: compare-benchmarks
+          path: velox
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
+        with:
+          limit-access-to-actor: true
