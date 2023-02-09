@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          merge_base=$(true) || {echo "::error::Failed to find merge base" && exit 1}
+          merge_base=$(true) || { echo "::error::Failed to find merge base" && exit 1 }
       - run: |
-          merge_base=$(false) || {echo "::error::Failed to find merge base" && exit 1}
+          merge_base=$(false) || { echo "::error::Failed to find merge base" && exit 1 }
 
