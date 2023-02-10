@@ -10,8 +10,12 @@ jobs:
   macos11:
     runs-on: ubuntu-latest
     steps:
+      - id: output
+        run: |
+          echo "multi-line<<delim" >> $GITHUB_OUTPUT
+          echo "{" >> $GITHUB_OUTPUT
+          echo '"a_value":242' >> $GITHUB_OUTPUT
+          echo "}" >> $GITHUB_OUTPUT
+          echo "delim" >> $GITHUB_OUTPUT
       - run: |
-          merge_base=$(true) || { echo "::error::Failed to find merge base"; exit 1; }
-      - run: |
-          merge_base=$(false) || { echo "::error::Failed to find merge base"; exit 1; }
-
+          echo "${{ steps.output.outputs.multi-line }}"
