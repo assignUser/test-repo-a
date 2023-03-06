@@ -1,50 +1,19 @@
 name: Dev PR
 on:
   workflow_dispatch:
-  pull_request:
-     types:
-      - opened
-      - edited
-      - synchronize
   push:
     paths:
       - .github/workflows/crossbow-test.yaml
 
 jobs:
   build_wheels:
-    name: Build wheels on ${{ matrix.os }}
-    runs-on: ${{ matrix.os }}
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [ubuntu-22.04, macos-11]
+    name: Build wheels
+    runs-on: macos-11
     steps:
-      - uses: actions/checkout@v3
-        with:
-          ref: main
-          repository: facebookincubator/velox
-          fetch-depth: 0
-          submodules: recursive
-
-      - name: "Determine Version"
-        id: version
-        run: |
-          # count number of commits since last tag matching a regex
-          # and use that to determine the version number
-          # e.g. if the last tag is 0.0.1, and there have been 5 commits since then
-          # the version will be 0.0.1a5
-          git fetch --tags
-          INITIAL_COMMIT=5d4db2569b7c249644bf36a543ba1bd8f12bf77c
-          # Can't use PCRE for portability
-          BASE_VERSION=$(grep -oE '[0-9]+\.[0-9]+\.[0-9]+' version.txt)
-
-          LAST_TAG=$(git describe --tags --match "pyvelox-v[0-9]*" --abbrev=0 || echo $INITIAL_COMMIT)
-          COMMITS_SINCE_TAG=$(git rev-list --count ${LAST_TAG}..HEAD)
-
-          if [ "$LAST_TAG" = "$INITIAL_COMMIT" ]; then
-            VERSION=$BASE_VERSION
-          else
-            VERSION=$(echo $LAST_TAG | sed '/pyvelox-v//')
-          fi
-          # NEXT_VERSION=$(echo $VERSION | awk -F. -v OFS=. '{$NF++ ; print}')
-          echo "build_version=${VERSION}a${COMMITS_SINCE_TAG}" 
+      - run: |
+          touch pyvelox_0.0.1_macosx_11_0_x86_64.whl
+          ls
+          rename 's/11_0/10_15/g' *.whl || brew install rename
+          ls
+          rename 's/11_0/10_15/g' *.whl
+          ls
