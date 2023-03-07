@@ -9,11 +9,7 @@ jobs:
   build_wheels:
     name: Build wheels
     runs-on: macos-11
+    env:
+      PATH: ¨/some/dir;$PATH"
     steps:
-      - run: |
-          touch pyvelox_0.0.1_macosx_11_0_x86_64.whl
-          ls
-          rename 's/11_0/10_15/g' *.whl || brew install rename
-          ls
-          rename 's/11_0/10_15/g' *.whl
-          ls
+      - run: echo $PATH
