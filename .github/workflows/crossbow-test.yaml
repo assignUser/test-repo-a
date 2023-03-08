@@ -12,4 +12,4 @@ jobs:
     env:
       PATH: ¨/some/dir;$PATH"
     steps:
-      - run: echo $PATH
+      - run: Rscript -e "install.packages('arrow')"
