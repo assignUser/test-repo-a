@@ -15,6 +15,6 @@ jobs:
           install-r: false
       - shell: Rscript {0}
         run: |
-          install.packages("arrow", type = "binary")
+          install.packages("arrow", type = "mac.binary")
           remove.packages("arrow")
           install.packages("arrow", type = "source")
