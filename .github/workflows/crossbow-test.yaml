@@ -4,28 +4,12 @@ on:
   push:
     paths:
       - .github/workflows/crossbow-test.yaml
-permissions:
-  checks: write
-  statuses: write
-  contents: read
   
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
-      - uses: actions/github-script@v6
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
         with:
-          script: |
-            github.rest.checks.create({
-              owner: "assignUser",
-              repo: "test-repo-a",
-              name: 'mighty_readme',
-              head_sha: '${{github.sha}}',
-              status: 'in_progress',
-              external_id: '42',
-              output: {
-                title: 'Mighty Readme report',
-                summary: '',
-                text: ''
-              },
-            });
+          limit-access-to-actor: true
