@@ -2,9 +2,9 @@ name: Dev PR
 on:
   workflow_dispatch:
   push:
-    paths:
-      - .github/workflows/crossbow-test.yaml
-  
+    branches: ['*patch*']
+    tags: [ 'v*.*.*' ]
+    
 jobs:
   test:
     runs-on: macos-latest
