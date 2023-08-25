@@ -7,9 +7,7 @@ on:
 
 jobs:        
   step1:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
-      - run: echo "del_prs=1 2 3" >> $GITHUB_OUTPUT
-        id: test
       - name: Setup tmate session
         uses: mxschmitt/action-tmate@v3
