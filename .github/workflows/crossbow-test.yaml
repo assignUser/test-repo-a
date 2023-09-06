@@ -9,5 +9,6 @@ jobs:
   step1:
     runs-on: macos-latest
     steps:
-      - name: Setup tmate session
-        uses: mxschmitt/action-tmate@v3
+      - run: |
+          brew install openssl@3
+          brew --prefix openssl
