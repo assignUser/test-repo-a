@@ -8,7 +8,8 @@ on:
 jobs:        
   step1:
     runs-on: macos-latest
+    env:
+      GITHUB_TOKEN: "${{ github.token }}"
     steps:
-      - run: |
-          brew install openssl@3
-          brew --prefix openssl
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
