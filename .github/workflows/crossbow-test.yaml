@@ -10,6 +10,8 @@ jobs:
     runs-on: macos-latest
     env:
       GITHUB_TOKEN: "${{ github.token }}"
+    strategy:
+      matrix:
+        v: ['centos', 'not-centos']
     steps:
-      - name: Setup tmate session
-        uses: mxschmitt/action-tmate@v3
+      - uses: actions/checkout@${{ matrix.v == 'centos' && 'v3' || 'v4' }}
