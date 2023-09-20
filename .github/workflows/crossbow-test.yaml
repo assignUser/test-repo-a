@@ -4,7 +4,9 @@ on:
   push:
     paths:
       - .github/workflows/crossbow-test.yaml
-permissions: read
+      
+permissions: 
+  contents: read
 jobs:        
   step1:
     runs-on: macos-latest
