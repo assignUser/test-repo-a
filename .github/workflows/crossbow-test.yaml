@@ -4,18 +4,12 @@ on:
   push:
     paths:
       - .github/workflows/crossbow-test.yaml
-
+permissions: read
 jobs:        
   step1:
     runs-on: macos-latest
     steps:
-      - run: |
-          brew install openssl@3 openssl@1.1
-          brew --prefix openssl
-      - run: |
-            if [ "${OPENSSL_ROOT_DIR}" = "" ] && brew --prefix openssl >/dev/null 2>&1; then
-              echo "`brew --prefix openssl`"
-            fi
-
+    - name: Setup tmate session
+      uses: mxschmitt/action-tmate@v3
 
           
