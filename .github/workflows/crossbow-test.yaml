@@ -15,7 +15,8 @@ jobs:
          run: |
            mkdir -p build
            touch build/arrow-13.0.0.zip
-           sha512sum build/arrow* > checksum.sha512
+           cd build
+           sha512sum arrow* > checksum.sha512
            cat checksum.sha512
          
        - name: Upload binary artifact
