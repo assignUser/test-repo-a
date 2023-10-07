@@ -1,4 +1,4 @@
-name: Dev PR
+zname: Dev PR
 on:
   workflow_dispatch:
   push:
@@ -9,11 +9,9 @@ permissions:
   contents: read
 jobs:        
   step1:
-    runs-on: macos-latest
-    env:
-      GH_TOKEN: ${{ github.token }}
+    runs-on: windows-latest
     steps:
-    - name: Setup tmate session
-      uses: mxschmitt/action-tmate@v3
+      - run: shasum --help
+        shell: bash
 
           
