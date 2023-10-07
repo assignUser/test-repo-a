@@ -11,7 +11,29 @@ jobs:
   step1:
     runs-on: windows-latest
     steps:
-      - run: sha512sum --help
+       - shell: bash
+         run: |
+           mkdir -p build
+           touch build/arrow-13.0.0.zip
+           sha512sum build/arrow* > checksum.sha512
+           cat checksum.sha512
+         
+       - name: Upload binary artifact
+         uses: actions/upload-artifact@v3
+         with:
+           name: r-lib__libarrow__bin__windows
+           path: |
+             build/arrow-*.zip
+             checksum.sha512
+
+  step2:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/download-artifact@v3
+        with:
+          name: r-lib__libarrow__bin__windows
+      - run: ls -R
         shell: bash
+
 
           
