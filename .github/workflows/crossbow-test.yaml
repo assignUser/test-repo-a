@@ -27,6 +27,7 @@ jobs:
              checksum.sha512
 
   step2:
+    needs: step1
     runs-on: windows-latest
     steps:
       - uses: actions/download-artifact@v3
