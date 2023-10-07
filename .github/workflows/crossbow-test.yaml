@@ -9,35 +9,9 @@ permissions:
   contents: read
 jobs:        
   step1:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
        - shell: bash
          run: |
-           mkdir -p build
-           touch build/arrow-13.0.0.zip
-           cd build
-           sha512sum arrow* > arrow-13.0.0.zip.sha512
-           cat arrow-13.0.0.zip.sha512
-         
-       - name: Upload binary artifact
-         uses: actions/upload-artifact@v3
-         with:
-           name: r-lib__libarrow__bin__windows
-           path: |
-             build/arrow-*.zip*
-      
-
-  step2:
-    needs: step1
-    runs-on: windows-latest
-    steps:
-      - uses: actions/download-artifact@v3
-        with:
-          name: r-lib__libarrow__bin__windows
-      - run: |
-          ls -R
-          sha512sum -c arrow-13.0.0.zip.sha512
-        shell: bash
-
-
-          
+           echo $USER
+        
