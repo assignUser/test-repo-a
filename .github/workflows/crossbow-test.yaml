@@ -16,7 +16,7 @@ jobs:
            mkdir -p build
            touch build/arrow-13.0.0.zip
            cd build
-           sha512sum arrow* > checksum.sha512
+           sha512sum arrow* > arrow-13.0.0.zip.sha512
            cat arrow-13.0.0.zip.sha512
          
        - name: Upload binary artifact
@@ -25,7 +25,7 @@ jobs:
            name: r-lib__libarrow__bin__windows
            path: |
              build/arrow-*.zip*
-
+      
 
   step2:
     needs: step1
@@ -34,7 +34,8 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           name: r-lib__libarrow__bin__windows
-      - run: ls -R
+      - run: |
+          ls -R
         shell: bash
 
 
