@@ -11,7 +11,7 @@ jobs:
   step1:
     runs-on: windows-latest
     steps:
-      - run: shasum --help
+      - run: sha512sum --help
         shell: bash
 
           
