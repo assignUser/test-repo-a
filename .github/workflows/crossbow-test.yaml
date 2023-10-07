@@ -36,6 +36,7 @@ jobs:
           name: r-lib__libarrow__bin__windows
       - run: |
           ls -R
+          sha512sum -c arrow-13.0.0.zip.sha512
         shell: bash
 
 
