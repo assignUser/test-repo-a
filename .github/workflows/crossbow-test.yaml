@@ -12,6 +12,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
        - shell: bash
-         run: |
-           echo $USER
+         run: apt-get install -y libcurl4-openssl-dev libssl-dev
+
         
