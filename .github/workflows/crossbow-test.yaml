@@ -13,7 +13,7 @@ jobs:
     steps:
        - shell: bash
          env:
-           "-W error -W ignore:Setting\\scustom\\sClientSession:DeprecationWarning"
+          PYTEST_ARGS: "-W error -W ignore:Setting\\scustom\\sClientSession:DeprecationWarning"
          run: echo $PYTEST_ARGS
 
         
