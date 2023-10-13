@@ -12,6 +12,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
        - shell: bash
-         run: which pkg-config
+         env:
+           PYTEST_ARGS: "-W error -W \"ignore:Setting custom ClientSession:DeprecationWarning\""
+         run: echo $PYTEST_ARGS
 
         
