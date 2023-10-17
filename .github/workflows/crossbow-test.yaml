@@ -19,7 +19,7 @@ jobs:
               if [ "$UNAME" = "Darwin" ] && [ $(sw_vers -productVersion) = "10.13" ]; then
                 # avoid C++17 availability warnings on macOS < 11
                 echo "-D_LIBCPP_DISABLE_AVAILABILITY"
-              else;
+              else
               echo blub
               fi
 
