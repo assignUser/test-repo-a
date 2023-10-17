@@ -16,7 +16,7 @@ jobs:
           PYTEST_ARGS: "-W error -W ignore:Setting\\scustom\\sClientSession:DeprecationWarning"
          run: |
            UNAME=`uname -s`
-              if [ "$UNAME" = "Darwin" ] && [ $(sw_vers -productVersion) = "10.13" ]; then
+              if [ "$UNAME" = "Darwin" ] && [ $(sw_vers -productVersion) = "12.7" ]; then
                 # avoid C++17 availability warnings on macOS < 11
                 echo "-D_LIBCPP_DISABLE_AVAILABILITY"
               else
