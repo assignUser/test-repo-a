@@ -9,11 +9,18 @@ permissions:
   contents: read
 jobs:        
   step1:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
        - shell: bash
          env:
           PYTEST_ARGS: "-W error -W ignore:Setting\\scustom\\sClientSession:DeprecationWarning"
-         run: echo $PYTEST_ARGS
+         run: |
+           UNAME=`uname -s`
+              if [ "$UNAME" = "Darwin" ] && [ $(sw_vers -productVersion) = "10.13" ]; then
+                # avoid C++17 availability warnings on macOS < 11
+                echo "-D_LIBCPP_DISABLE_AVAILABILITY"
+              else;
+              echo blub
+              fi
 
         
