@@ -16,4 +16,6 @@ jobs:
           r-version: 'release'
       - shell: Rscript {0}
         run: |
-          install.packages('arrow', type = 'source')
+          install.packages('arrow')
+          remove.packages('arrow')
+          install.packages('arrow', type = 'source)  
