@@ -44,5 +44,5 @@ jobs:
       - shell: Rscript {0}
         run: |
           remove.packages('arrow')
-          install.packages('arrow/r/arrow_14.0.0.1.tar.gz')
+          install.packages('arrow/r/arrow_14.0.0.tar.gz')
           arrow::arrow_info()
