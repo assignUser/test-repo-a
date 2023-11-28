@@ -9,7 +9,7 @@ permissions:
   contents: read
 jobs:        
   step1:
-    runs-on: macos-latest
+    runs-on: macos-12
     steps:
       - run: |
           wget -O pc.tar.xz https://mac.r-project.org/bin/darwin17/x86_64/pkgconfig-0.29.2-darwin.17-x86_64.tar.xz
