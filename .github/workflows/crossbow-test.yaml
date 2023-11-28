@@ -14,11 +14,11 @@ jobs:
       - run: |
           wget -O pc.tar.xz https://mac.r-project.org/bin/darwin17/x86_64/pkgconfig-0.29.2-darwin.17-x86_64.tar.xz
           tar -xzf pc.tar.xz
-          echo "PKG_CONFIG=`pwd`/usr/local/bin/pkg-config"
-          $PKG_CONFIG --version
-          
+          echo "PKG_CONFIG=`pwd`/usr/local/bin/pkg-config"         
+      - run: $PKG_CONFIG --version || blub
       - name: Setup tmate session
         uses: mxschmitt/action-tmate@v3
+
       - uses: r-lib/actions/setup-r@v2
         with:
           r-version: 'release'
