@@ -28,15 +28,21 @@ jobs:
           repository: assignUser/arrow
           ref: debug-pc-error
           path: arrow
+      - shell: Rscript {0}
+        run: |
+          setwd('arrow/r')
+          install.packages('devtools')
+          install.packages('arrow')
+          devtools::install_dev_deps()
       - run: |
           cd arrow/r
           Rscript tools/update-checksums.R 14.0.0
           make build
       - name: Setup tmate session
-        if: always()
+        if: false()
         uses: mxschmitt/action-tmate@v3
       - shell: Rscript {0}
         run: |
-          install.packages('arrow')
           remove.packages('arrow')
-          install.packages('arrow/r/arrow_14.0.0.1.tar.gz')  
+          install.packages('arrow/r/arrow_14.0.0.1.tar.gz')
+          arrow::arrow_info()
