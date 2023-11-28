@@ -39,7 +39,7 @@ jobs:
           Rscript tools/update-checksums.R 14.0.0
           make build
       - name: Setup tmate session
-        if: false()
+        if: false
         uses: mxschmitt/action-tmate@v3
       - shell: Rscript {0}
         run: |
