@@ -24,4 +24,8 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           name: spark
-      - run: ls -R
+      - run: |
+          ls -R
+          ./binary || echo blub
+          chmod +x binary
+          ./binary || echo "kein binary lol"
