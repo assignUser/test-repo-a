@@ -13,7 +13,7 @@ jobs:
     steps:
       - run: |
           mkdir -p nested/dir
-          touch nested/dir/binary
+          cp `which echo` nested/dir/binary
       - uses: actions/upload-artifact@v3
         with:
           name: spark
@@ -26,6 +26,6 @@ jobs:
           name: spark
       - run: |
           ls -R
-          ./binary || echo blub
+          ./binary works || echo blub
           chmod +x binary
-          ./binary || echo "kein binary lol"
+          ./binary works || echo "kein binary lol"
