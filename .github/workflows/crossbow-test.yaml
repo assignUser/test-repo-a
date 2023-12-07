@@ -28,4 +28,4 @@ jobs:
           ls -R
           ./binary works || echo blub
           chmod +x binary
-          ./binary works || echo "kein binary lol"
+          ./binary works || echo "kein binary lol" 
