@@ -8,16 +8,6 @@ on:
 permissions: 
   contents: read
 jobs:        
-  step1:
-    runs-on: ubuntu-latest
-    steps:
-      - run: |
-          mkdir -p nested/dir
-          cp `which echo` nested/dir/binary
-      - uses: actions/upload-artifact@v3
-        with:
-          name: spark
-          path: ./nested/dir/binary
   get:
     runs-on: macos-latest
     steps:
@@ -26,6 +16,7 @@ jobs:
           use-public-rspm: true
       - shell: Rscript {0}
         run: |
+          options(repos = c(CRAN = "https://packagemanager.posit.co/cran/latest"))
           install.packages('arrow')
           arrow::arrow_info()
         
