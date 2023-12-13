@@ -19,13 +19,13 @@ jobs:
           name: spark
           path: ./nested/dir/binary
   get:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
-      - uses: actions/download-artifact@v3
+      - uses: r-lib/actions/setup-r@v2
         with:
-          name: spark
-      - run: |
-          ls -R
-          ./binary works || echo blub
-          chmod +x binary
-          ./binary works || echo "kein binary lol"
+          use-public-rspm: truej
+      - shell: Rscript {0}
+        run: |
+          install.packages('arrow')
+          arrow::arrow_info()
+        
