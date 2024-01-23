@@ -10,14 +10,8 @@ permissions:
 jobs:        
   get:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        cpp_version: [ "15.0.0" , "14.0.2",  "13.0.0"  ]
     steps:
-      - name: "Full step is evaluated"
-        if: ${{ env.var }}
-        env:
-          var: true
-        run: echo The full step is evaluated before if is checked.      
-      - name: "if is evaluated directly"
-        if: ${{ !env.var }}
-        env:
-          var: true
-        run: echo If is evaluated before the rest of the step.
+      - run: echo ${{ matrix.cpp_version }}
