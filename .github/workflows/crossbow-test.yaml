@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-20.04
     strategy:
       matrix:
-        cpp_version: [ "15.0.0" , "14.0.2",  "13.0.0"  ]
+        cpp_version: [ "15.0.0" , "14.0.1",  "13.0.0"  ]
     steps:
       - name: Build Arrow C++ (${{ matrix.cpp_version }})
         run: |
@@ -22,4 +22,4 @@ jobs:
           sudo apt install -y -V ./apache-arrow-apt-source-latest-$(lsb_release --codename --short).deb
           sudo apt update
           apt-cache policy libarrow-dataset-dev
-          sudo apt install -y -V libarrow-acero-dev=${{ matrix.cpp_version }}-1 libparquet-dev=${{ matrix.cpp_version }}-1 libarrow-dataset-dev=${{ matrix.cpp_version }}-1
+          sudo apt install -y -V libarrow-arrow-dev=${{ matrix.cpp_version }}-1 libarrow-acero-dev=${{ matrix.cpp_version }}-1 libparquet-dev=${{ matrix.cpp_version }}-1 libarrow-dataset-dev=${{ matrix.cpp_version }}-1
