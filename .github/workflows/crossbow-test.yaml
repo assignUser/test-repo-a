@@ -9,9 +9,17 @@ permissions:
   contents: read
 jobs:        
   get:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.4
     strategy:
       matrix:
         cpp_version: [ "15.0.0" , "14.0.2",  "13.0.0"  ]
     steps:
-      - run: echo ${{ matrix.cpp_version }}
+      - name: Build Arrow C++ (${{ matrix.cpp_version }})
+        run: |
+          sudo apt update
+          sudo apt install -y -V ca-certificates lsb-release wget
+          wget https://apache.jfrog.io/artifactory/arrow/$(lsb_release --id --short | tr 'A-Z' 'a-z')/apache-arrow-apt-source-latest-$(lsb_release --codename --short).deb
+          sudo apt install -y -V ./apache-arrow-apt-source-latest-$(lsb_release --codename --short).deb
+          sudo apt update
+          apt-cache policy libarrow-dataset-dev
+          sudo apt install -y -V libarrow-dataset-dev=${{ matrix.config.cpp_version }}-1
