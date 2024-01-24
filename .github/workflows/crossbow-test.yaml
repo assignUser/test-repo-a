@@ -9,7 +9,7 @@ permissions:
   contents: read
 jobs:        
   get:
-    runs-on: ubuntu-20.4
+    runs-on: ubuntu-20.04
     strategy:
       matrix:
         cpp_version: [ "15.0.0" , "14.0.2",  "13.0.0"  ]
