@@ -62,6 +62,12 @@ jobs:
             /t REG_DWORD `
             /d 1 `
             /f
+      - name: Checkout Arrow
+        uses: actions/checkout@v4
+        with:
+          repository: apache/arrow
+          fetch-depth: 0
+          submodules: recursive
       - name: Download Timezone Database
         shell: bash
         run: ci/scripts/download_tz_database.sh
