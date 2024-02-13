@@ -10,7 +10,11 @@ permissions:
 jobs:        
   blub:
     runs-on: ubuntu-latest
+    env:
+      A: blub
+      B: "some more $A"
+      C: "some more ${{ env.A }}"
     steps:
       - run: |
-          df -h .
-          du -hs .
+          echo $B
+          echo $C
