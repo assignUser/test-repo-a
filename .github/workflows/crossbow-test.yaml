@@ -14,7 +14,6 @@ jobs:
     runs-on: ubuntu-latest
     env:
       B: "some more $A"
-      C: "some more ${{ env.A }}"
       
     steps:
       - run: |
