@@ -7,13 +7,15 @@ on:
       
 permissions: 
   contents: read
+env:
+  A: blub
 jobs:        
   blub:
     runs-on: ubuntu-latest
     env:
-      A: blub
       B: "some more $A"
       C: "some more ${{ env.A }}"
+      
     steps:
       - run: |
           echo $B
