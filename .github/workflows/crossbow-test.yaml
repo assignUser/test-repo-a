@@ -7,15 +7,17 @@ on:
       
 permissions: 
   contents: read
-env:
-  A: blub
+
 jobs:        
   blub:
     runs-on: ubuntu-latest
-    env:
-      B: "some more $A"
       
     steps:
-      - run: |
-          echo $B
-          echo $C
+      - uses: assignUser/stash/restore@main
+        with:
+          path: test_bin/
+          key: test-stash
+      - uses: assignUser/stash/save@main
+        with:
+          path: /usr/local/lib/node_modules
+          key: test-stash
