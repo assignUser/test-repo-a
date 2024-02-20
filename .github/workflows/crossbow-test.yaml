@@ -17,6 +17,7 @@ jobs:
         with:
           path: test_bin/
           key: test-stash
+          
       - uses: assignUser/stash/save@main
         with:
           path: /usr/local/lib/node_modules
