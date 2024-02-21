@@ -11,4 +11,3 @@ jobs:
         run: |
           echo "${{ github.base_ref }}"
           echo "${{ github.ref }}"
-
