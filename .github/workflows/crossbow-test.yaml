@@ -12,10 +12,6 @@ jobs:
     steps:
       - id: output
         run: |
-          echo "multi-line<<delim" >> $GITHUB_OUTPUT
-          echo "{" >> $GITHUB_OUTPUT
-          echo '"a_value":242' >> $GITHUB_OUTPUT
-          echo "}" >> $GITHUB_OUTPUT
-          echo "delim" >> $GITHUB_OUTPUT
-      - run: |
-          echo "${{ steps.output.outputs.multi-line }}"
+          echo "${{ github.base_ref }}"
+          echo "${{ github.ref }}"
+
