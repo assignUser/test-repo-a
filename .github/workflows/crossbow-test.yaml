@@ -13,13 +13,16 @@ jobs:
     runs-on: ubuntu-latest
       
     steps:
+      - run:  gh run view ${{github.run_id}}
       - uses: actions/checkout@v4
-      - uses: assignUser/stash/restore@main
+      - if: false
+        uses: assignUser/stash/restore@main
         with:
           path: test_bin/
           key: test-stash
           
-      - uses: assignUser/stash/save@main
+      - if: false
+        uses: assignUser/stash/save@main
         with:
           path: /usr/local/lib/node_modules
           key: test-stash
