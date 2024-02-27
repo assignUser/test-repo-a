@@ -13,9 +13,8 @@ jobs:
     runs-on: ubuntu-latest
       
     steps:
-      - env:
-          boom: "'$(echo boom)'"
-        run: echo 
+      - shell: python
+        run: print("::warning :: a warning")
       - uses: actions/checkout@v4
       - if: false
         uses: assignUser/stash/restore@main
@@ -23,7 +22,7 @@ jobs:
           path: test_bin/
           key: test-sta/sh
           
-      - if: true
+      - if: false
         uses: assignUser/stash/save@main
         with:
           path: /usr/local/lib/node_modules
