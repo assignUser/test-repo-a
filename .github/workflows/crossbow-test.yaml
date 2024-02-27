@@ -14,7 +14,8 @@ jobs:
       
     steps:
       - shell: python
-        run: print("::warning :: a warning")
+        run: |
+          print("::warning :: a warning")
       - uses: actions/checkout@v4
       - if: false
         uses: assignUser/stash/restore@main
