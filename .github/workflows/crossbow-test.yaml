@@ -15,16 +15,16 @@ jobs:
     steps:
       - env:
           boom: "'$(echo boom)'"
-        run: echo '${{ env.boom }}'
+        run: echo 
       - uses: actions/checkout@v4
       - if: false
         uses: assignUser/stash/restore@main
         with:
           path: test_bin/
-          key: test-stash
+          key: test-sta/sh
           
-      - if: false
+      - if: true
         uses: assignUser/stash/save@main
         with:
           path: /usr/local/lib/node_modules
-          key: test-stash
+          key: test-stash-35/merge
