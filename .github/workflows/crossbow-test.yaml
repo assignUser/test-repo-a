@@ -13,7 +13,8 @@ jobs:
     runs-on: ubuntu-latest
       
     steps:
-      - run:  gh run view ${{github.run_id}}
+      - continue-on-error: true
+        run: exit 1
       - uses: actions/checkout@v4
       - if: false
         uses: assignUser/stash/restore@main
