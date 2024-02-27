@@ -13,8 +13,9 @@ jobs:
     runs-on: ubuntu-latest
       
     steps:
-      - continue-on-error: true
-        run: exit 1
+      - env:
+          boom: "'$(echo boom)'"
+        run: echo '${{ env.boom }}'
       - uses: actions/checkout@v4
       - if: false
         uses: assignUser/stash/restore@main
