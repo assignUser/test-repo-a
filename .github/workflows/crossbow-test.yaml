@@ -13,10 +13,11 @@ jobs:
     runs-on: ubuntu-latest
       
     steps:
-      - shell: python
+      - id: a
         run: |
-          print("::warning :: a warning")
-      - uses: actions/checkout@v4
+          echo "b=c" >> $GITHUB_OUTPUT
+          echo "b=d" >> $GITHUB_OUTPUT
+      - run: echo "${{ steps.a.outputs.b }}"
       - if: false
         uses: assignUser/stash/restore@main
         with:
