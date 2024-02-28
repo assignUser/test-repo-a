@@ -15,8 +15,12 @@ jobs:
     steps:
       - id: a
         run: |
-          echo "b=c" >> $GITHUB_OUTPUT
-          echo "b=d" >> $GITHUB_OUTPUT
+          if [ "s" == "s" ]; then
+            echo "true"
+            exit 0
+          fi
+
+          echo "after if"
       - run: echo "${{ steps.a.outputs.b }}"
       - if: false
         uses: assignUser/stash/restore@main
