@@ -10,17 +10,13 @@ permissions:
 
 jobs:        
   blub:
-    runs-on: ubuntu-latest
+    runs-on: macos-14
       
     steps:
       - id: a
         run: |
-          if [ "s" == "s" ]; then
-            echo "true"
-            exit 0
-          fi
-
-          echo "after if"
+          which python3
+          which python
       - run: echo "${{ steps.a.outputs.b }}"
       - if: false
         uses: assignUser/stash/restore@main
