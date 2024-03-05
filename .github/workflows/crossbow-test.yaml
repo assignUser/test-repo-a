@@ -9,5 +9,4 @@ jobs:
     steps:
       - id: output
         run: |
-          echo "${{ github.base_ref }}"
-          echo "${{ github.ref }}"
+          jq '. |= keys' ${{github.event_path}}
