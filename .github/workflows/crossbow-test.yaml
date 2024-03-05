@@ -1,6 +1,7 @@
 name: Dev PR
 on:
   workflow_dispatch:
+  pull_request:
   push:
     paths:
       - .github/workflows/crossbow-test.yaml
@@ -9,12 +10,5 @@ jobs:
   step1:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "del_prs=1 2 3" >> $GITHUB_OUTPUT
+      - run: echo ${{ toJSON(github.event) }}
         id: test
-      - env:
-          pr_ids: ${{ steps.test.outputs.del_prs }}
-        run: |
-          for id in "${pr_ids[@]}"
-          do
-            echo $id
-          done
