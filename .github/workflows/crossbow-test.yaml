@@ -9,4 +9,9 @@ jobs:
     steps:
       - id: output
         run: |
-          jq '. |= keys' ${{github.event_path}}
+          mkdir ccache
+          touch ccache/afile
+      - container: ubuntu:latest
+        run: |
+          ls -la
+          ls -la ccache
