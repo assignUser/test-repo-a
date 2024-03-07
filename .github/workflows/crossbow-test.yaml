@@ -11,7 +11,8 @@ jobs:
         run: |
           mkdir ccache
           touch ccache/afile
-      - container: ubuntu:latest
-        run: |
-          ls -la
-          ls -la ccache
+      - run: |
+          ccache -V || echo a
+          cmake --version
+          sudo apt update
+          sudo apt install cmake ccache
