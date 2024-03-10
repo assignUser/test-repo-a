@@ -9,12 +9,4 @@ jobs:
     steps:
       - id: output
         run: |
-          mkdir ccache
-          touch ccache/afile
-      - run: |
-          ccache -V || echo a
-          cmake --version
-          sudo apt update
-          sudo apt install cmake ccache
-          ccache -V
-          cmake --version
+          echo "${{ github.even_name != 'push' || 'blue' }}"
