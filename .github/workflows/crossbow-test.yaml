@@ -8,10 +8,19 @@ jobs:
     name: test
     runs-on: ubuntu-latest
     steps:
-      - run: echo "test=5" >> $GITHUB_ENV
-  build2:
-    needs: build
-    name: test2
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo $test
+      - run: |
+          sudo apt update
+          sudo apt install libboost-all-dev
+      - shell: cmake -P {0}
+        run: |
+          set(BOOST_INCLUDE_LIBRARIES
+          headers
+          atomic
+          context
+          date_time
+          filesystem
+          program_options
+          regex
+          system
+          thread)
+          find_package(Boost 1.66.0 COMPONENTS ${BOOST_INCLUDE_LIBRARIES})
