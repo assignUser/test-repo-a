@@ -11,10 +11,9 @@ jobs:
       - run: |
           sudo apt update
           sudo apt install libboost-all-dev
-      - shell: cmake -P {0}
-        run: |
-          cmake_minimum_required(VERSION 3.14)
-          enable_language(C CXX)
+      - run: |
+          echo 'cmake_minimum_required(VERSION 3.14)
+          project(test)
           set(BOOST_INCLUDE_LIBRARIES
           headers
           atomic
@@ -25,4 +24,5 @@ jobs:
           regex
           system
           thread)
-          find_package(Boost 1.66.0 COMPONENTS ${BOOST_INCLUDE_LIBRARIES})
+          find_package(Boost 1.66.0 COMPONENTS ${BOOST_INCLUDE_LIBRARIES})' >> CMakeLists.txt
+          cmake .
