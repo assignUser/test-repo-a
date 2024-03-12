@@ -4,9 +4,14 @@ on:
   pull_request:
 
 jobs:        
-  macos11:
+  build:
+    name: test
     runs-on: ubuntu-latest
     steps:
-      - id: output
-        run: |
-          echo "${{ github.even_name != 'push' || 'blue' }}"
+      - run: echo "test=5" >> $GITHUB_ENV
+  build2:
+    needs: build
+    name: test2
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo $test
