@@ -8,21 +8,11 @@ jobs:
     name: test
     runs-on: ubuntu-latest
     steps:
-      - run: |
-          sudo apt update
-          sudo apt install libboost-all-dev
-      - run: |
-          echo 'cmake_minimum_required(VERSION 3.14)
-          project(test)
-          set(BOOST_INCLUDE_LIBRARIES
-          headers
-          atomic
-          context
-          date_time
-          filesystem
-          program_options
-          regex
-          system
-          thread)
-          find_package(Boost 1.66.0 COMPONENTS ${BOOST_INCLUDE_LIBRARIES})' >> CMakeLists.txt
-          cmake .
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.8'
+      - run: python3 -c "import sysconfig; print(sysconfig.get_config_var('EXT_SUFFIX'))"      
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python3 -c "import sysconfig; print(sysconfig.get_config_var('EXT_SUFFIX'))"
