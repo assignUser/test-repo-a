@@ -3,24 +3,7 @@ on:
   workflow_dispatch:
   pull_request:
 
-jobs:        
-  build:
-    name: test
-    runs-on: ubuntu-latest
-    steps:
-      - run: cmake --version
-      - uses: actions/checkout@v4
-        with:
-          repository: 'facebookincubator/velox'
-      - run: |
-          source scripts/setup-ubuntu.sh
-          cmake --version
-      - run: |
-          for i in {1..10}; do 
-              rm -rf _build || echo blub
-              make cmake BUILD_DIR=debug BUILD_TYPE=Debug
-          done
-      
+jobs:
   cpr:
       name: cpr direcct
       runs-on: ubuntu-latest
@@ -32,7 +15,8 @@ jobs:
         - run: |
             for i in {1..10}; do 
               rm -rf _build || echo blub
-              cmake -B _build -DCPR_USE_SYSTEM_CURL=OFF -DBUILD_SHARED_LIBS=OFF -DCURL_ZLIB=OFF -DCMAKE_BUILD_TYPE=Debug .
+              echo "Run number $i"
+              cmake -B _build -DCMAKE_BUILD_TYPE=Debug .
             done
 
         
