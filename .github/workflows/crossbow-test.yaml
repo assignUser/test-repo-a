@@ -6,8 +6,12 @@ on:
 jobs:
   cpr:
       name: cpr direcct
-      runs-on: ubuntu-20.04
+      runs-on: ubuntu-22.04
       steps:
+        - name: Setup cmake
+          uses: jwlawson/actions-setup-cmake@v1.14
+          with:
+            cmake-version: '3.27.x'
         - uses: actions/checkout@v4
           with:
             repository: 'libcpr/cpr'
