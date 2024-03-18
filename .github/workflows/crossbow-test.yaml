@@ -15,4 +15,4 @@ jobs:
       - run: |
           source scripts/setup-ubuntu.sh
           cmake --version
-      - run: cmake --version
+      - run: make cmake BUILD_DIR=debug BUILD_TYPE=Debug
