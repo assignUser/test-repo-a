@@ -28,7 +28,7 @@ jobs:
         - uses: actions/checkout@v4
           with:
             repository: 'libcpr/cpr'
-            ref: '1cb247a'
+            ref: '1.10.5'
         - run: |
             for i in {1..10}; do 
               rm -rf _build || echo blub
