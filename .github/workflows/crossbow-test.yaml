@@ -14,9 +14,9 @@ jobs:
             ref: '1.10.5'
         - run: |
             for i in {1..10}; do 
-              rm -rf _build || echo blub
+              rm -rf build || echo blub
               echo "Run number $i"
-              cmake -B _build -DCMAKE_BUILD_TYPE=Debug .
+              cmake -B build -DCMAKE_BUILD_TYPE=Debug .
             done
 
         
