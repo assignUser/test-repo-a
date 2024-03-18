@@ -8,11 +8,10 @@ jobs:
     name: test
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/setup-python@v5
+      - run: cmake --version
+      - uses: actions/checkout@v4
         with:
-          python-version: '3.8'
-      - run: python3 -c "import sysconfig; print(sysconfig.get_config_var('EXT_SUFFIX'))"      
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-      - run: python3 -c "import sysconfig; print(sysconfig.get_config_var('EXT_SUFFIX'))"
+          repository: 'facebookincubator/velox'
+      - run: |
+          source scripts/setup-ubuntu.sh
+          cmake --version
