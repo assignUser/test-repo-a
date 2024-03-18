@@ -17,6 +17,7 @@ jobs:
             repository: 'libcpr/cpr'
             ref: '1.10.5'
         - run: |
+            cmake --version
             for i in {1..10}; do 
               rm -rf build || echo blub
               echo "Run number $i"
