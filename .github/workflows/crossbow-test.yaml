@@ -15,4 +15,25 @@ jobs:
       - run: |
           source scripts/setup-ubuntu.sh
           cmake --version
-      - run: make cmake BUILD_DIR=debug BUILD_TYPE=Debug
+      - run: |
+          for i in {1..10}; do 
+              rm -rf _build || echo blub
+              make cmake BUILD_DIR=debug BUILD_TYPE=Debug
+          done
+      
+  cpr:
+      name: cpr direcct
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v4
+          with:
+            repository: 'libcpr/cpr'
+            ref: 'c8590568996cea918d7cf7ec6845d954b9b95ab2c4980b365f582a665dea08d8'
+        - run: |
+            for i in {1..10}; do 
+              rm -rf _build || echo blub
+              cmake -B _build -DCPR_USE_SYSTEM_CURL=OFF -DBUILD_SHARED_LIBS=OFF -DCURL_ZLIB=OFF -DCMAKE_BUILD_TYPE=Debug .
+            done
+
+        
+      
