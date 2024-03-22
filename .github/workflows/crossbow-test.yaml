@@ -9,6 +9,5 @@ jobs:
       runs-on: ubuntu-22.04
       steps:
         - run: |
-            false || echo blub | tee file
-            cat file
+            false 
       
