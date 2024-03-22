@@ -7,20 +7,11 @@ jobs:
   cpr:
       name: cpr direcct
       runs-on: ubuntu-22.04
+      env:
+        blub: > 'this
+                 is 
+                 oneline'
+              
       steps:
-        - uses: actions/checkout@v4
-          with:
-            repository: 'libcpr/cpr'
-            ref: '1.10.5'
-        - run: |
-            gcc --version
-            sudo apt update && sudo apt upgrade -y
-            cmake --version
-            for i in {1..10}; do 
-              rm -rf build || echo blub
-              echo "Run number $i"
-              cmake -B build -DCMAKE_BUILD_TYPE=Debug .
-            done
-
-        
+        - run: echo $blub
       
