@@ -13,5 +13,7 @@ jobs:
                  oneline'
               
       steps:
-        - run: echo $blub
+        - run: |
+            false || echo blub | tee file
+            cat file
       
