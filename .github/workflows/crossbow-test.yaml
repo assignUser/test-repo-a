@@ -17,7 +17,7 @@ jobs:
       name: job2
       needs: cpr
       runs-on: ubuntu-22.04
-      if: ${{ needs.cpr.outputs.fail == 'false' }}
+      if: ${{ needs.cpr.outputs.fail == 'true' }}
       steps:
         - id: fail
           run: |
