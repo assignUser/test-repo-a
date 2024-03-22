@@ -7,11 +7,6 @@ jobs:
   cpr:
       name: cpr direcct
       runs-on: ubuntu-22.04
-      env:
-        blub: > 'this
-                 is 
-                 oneline'
-              
       steps:
         - run: |
             false || echo blub | tee file
