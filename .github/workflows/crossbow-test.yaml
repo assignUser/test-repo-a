@@ -12,12 +12,10 @@ jobs:
           run: |
             sudo sysctl vm.max_map_count
             sudo sysctl -w vm.max_map_count=67108864
-  job:
-      name: job2
-      runs-on: ubuntu-22.04
-      container: ghcr.io/facebookincubator/velox-dev:centos8
-      steps:
-        - id: fail
+            touch some_file
+        - shell: docker run --rm -v ${{ github.workspace }}:/velox -w /velox ghcr.io/facebookincubator/velox-dev:centos8 /bin/bash -e {0}
           run: |
+            ls
+            touch anotherfile
             sysctl vm.max_map_count
-            sysctl -w vm.max_map_count=67108864
+        - run: ls
