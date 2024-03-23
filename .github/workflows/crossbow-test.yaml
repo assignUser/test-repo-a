@@ -6,19 +6,18 @@ on:
 jobs:
   cpr:
       name: job
-      runs-on: ubuntu-22.04
-      outputs:
-        fail: ${{ steps.fail.outputs.fail }}
+      runs-on: ubuntu-20.4
       steps:
         - id: fail
           run: |
-            echo "fail=false" >> $GITHUB_OUTPUT
+            sudo sysctl vm.max_map_count
+            sudo sysctl -w vm.max_map_count=67108864
   job:
       name: job2
-      needs: cpr
       runs-on: ubuntu-22.04
-      if: ${{ needs.cpr.outputs.fail == 'true' }}
+      container: ghcr.io/facebookincubator/velox-dev:centos8
       steps:
         - id: fail
           run: |
-            echo "should have been skipped"
+            sysctl vm.max_map_count
+            sysctl -w vm.max_map_count=67108864
