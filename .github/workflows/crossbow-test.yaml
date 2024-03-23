@@ -6,7 +6,7 @@ on:
 jobs:
   cpr:
       name: job
-      runs-on: ubuntu-20.4
+      runs-on: ubuntu-20.04
       steps:
         - id: fail
           run: |
