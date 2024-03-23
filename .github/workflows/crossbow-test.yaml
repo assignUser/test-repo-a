@@ -13,7 +13,7 @@ jobs:
             sudo sysctl vm.max_map_count
             sudo sysctl -w vm.max_map_count=67108864
             touch some_file
-        - shell: docker run --rm -v $GITHUB_WORKSPACE:/velox -w /velox ghcr.io/facebookincubator/velox-dev:centos8 /bin/bash -e {0}
+        - shell: docker run --rm -v .:/velox -w /velox ghcr.io/facebookincubator/velox-dev:centos8 /bin/bash -e {0}
           run: |
             ls
             touch anotherfile
