@@ -10,5 +10,6 @@ jobs:
       steps:
         - id: fail
           run: |
-            var='> [!CAUTION]\\nsome text\\nwith\\nnewlines and such'
+            var='nsome text\\nwith\\nnewlines and such'
+            echo "> [!CAUTION]" >> $GITHUB_STEP_SUMMARY
             echo $var >> $GITHUB_STEP_SUMMARY
