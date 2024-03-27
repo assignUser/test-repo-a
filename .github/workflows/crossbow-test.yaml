@@ -1,20 +1,15 @@
 name: Dev PR
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - .github/workflows/crossbow-test.yaml
+  pull_request:
 
-jobs:        
-  step1:
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "del_prs=1 2 3" >> $GITHUB_OUTPUT
-        id: test
-      - env:
-          pr_ids: ${{ steps.test.outputs.del_prs }}
-        run: |
-          for id in "${pr_ids[@]}"
-          do
-            echo $id
-          done
+jobs:
+  cpr:
+      name: job
+      runs-on: ubuntu-20.04
+      steps:
+        - id: fail
+          run: |
+            var='nsome text\\nwith\\nnewlines and such'
+            echo "> [!CAUTION]" >> $GITHUB_STEP_SUMMARY
+            echo $var >> $GITHUB_STEP_SUMMARY
