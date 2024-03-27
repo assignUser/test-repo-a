@@ -10,13 +10,5 @@ jobs:
       steps:
         - id: fail
           run: |
-            sudo sysctl vm.max_map_count
-            sudo sysctl -w vm.max_map_count=67108864
-            touch some_file
-            pwd
-        - shell: docker run --rm -v /home/runner/work/test-repo-a/test-repo-a:/velox -w /velox ghcr.io/facebookincubator/velox-dev:centos8 /bin/bash -e {0}
-          run: |
-            ls
-            touch anotherfile
-            sysctl vm.max_map_count
-        - run: ls
+            var='> [!CAUTION]\nsome text\nwith\nnewlines and such'
+            echo $var >> $GITHUB_STEP_SUMMARY
