@@ -13,4 +13,5 @@ jobs:
             var='nsome text\\nwith\\nnewlines and such'
             echo "> [!CAUTION]" >> $GITHUB_STEP_SUMMARY
             echo $var >> $GITHUB_STEP_SUMMARY
+            cat $GITHUB_STEP_SUMMARY
         - run: cat $GITHUB_STEP_SUMMARY 
