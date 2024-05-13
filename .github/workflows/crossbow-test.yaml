@@ -22,7 +22,7 @@ jobs:
           fetch-depth: 1
           path: arrow
           repository: assignUser/arrow
-          ref: 1598816f77c0
+          ref: 1598816f77c046dd046e0e6e4f5bf30cdf611adc
           submodules: recursive
           
       - name: Install dependencies
