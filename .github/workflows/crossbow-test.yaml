@@ -52,6 +52,7 @@ jobs:
           cores=`nproc || sysctl -n hw.logicalcpu`
           echo "MAKEFLAGS=-j$cores" >> $GITHUB_ENV
       - name: Install arrow source package
+        working-directory: arrow/r
         env:
           # Test source build so be sure not to download a binary
           LIBARROW_BINARY: "FALSE"
@@ -59,7 +60,7 @@ jobs:
         shell: Rscript {0}
         run: |
           source("https://raw.githubusercontent.com/apache/arrow/HEAD/ci/etc/rprofile")
-          pak::local_install("arrow/r/")
+          pak::local_install(".")
           library(arrow)
           read_parquet(system.file("v0.7.1.parquet", package = "arrow"))
           print(arrow_info())
