@@ -59,7 +59,7 @@ jobs:
         shell: Rscript {0}
         run: |
           source("https://raw.githubusercontent.com/apache/arrow/HEAD/ci/etc/rprofile")
-          pak::local_install("r/")
+          pak::local_install("arrow/r/")
           library(arrow)
           read_parquet(system.file("v0.7.1.parquet", package = "arrow"))
           print(arrow_info())
