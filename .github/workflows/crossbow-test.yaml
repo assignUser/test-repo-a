@@ -17,7 +17,7 @@ jobs:
         env:
           LIBARROW_BINARY: "false"
         run: |
-            install.packages('arrow')
+            install.packages('arrow', type = 'source')
 
 
 
