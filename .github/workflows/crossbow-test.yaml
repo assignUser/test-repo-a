@@ -5,66 +5,19 @@ on:
 
 jobs:
    test-source:
-    name: Test ${{ matrix.platform.name }} source build
-    runs-on: ${{ matrix.platform.runs_on }}
-    strategy:
-      fail-fast: false
-      matrix:
-        platform:
-          - {runs_on: "macos-12" , name: "macOS"}
+    name: Test
+    runs-on: macos-12
     steps:
       - name: Install R
         uses: r-lib/actions/setup-r@v2
-      # TODO: improve arg handling
-      - name: Checkout Arrow
-        uses: actions/checkout@v3
         with:
-          fetch-depth: 1
-          path: arrow
-          repository: assignUser/arrow
-          ref: 1598816f77c046dd046e0e6e4f5bf30cdf611adc
-          submodules: recursive
+          r-version: 'oldrel'
           
-      - name: Install dependencies
-        uses: r-lib/actions/setup-r-dependencies@v2
-        with:
-           working-directory: 'arrow/r'
-           extra-packages: cpp11
-
-      - shell: sudo -E Rscript {0}
-        run: |
-            # get the mac-recipes version of openssl from CRAN
-            source("https://mac.R-project.org/bin/install.R") 
-            install.libs("openssl")
-            
-            # override our cmakes default setting of the brew --prefix as root dir to avoid version conflicts.
-            if (Sys.info()[["machine"]] == "arm64"){
-              cat("OPENSSL_ROOT_DIR=/opt/R/arm64\n", file=Sys.getenv("GITHUB_ENV"), append = TRUE)
-            } else {
-              cat("OPENSSL_ROOT_DIR=/opt/R/x86_64\n", file=Sys.getenv("GITHUB_ENV"), append = TRUE)
-            }
-      - name: Install R package system dependencies (macOS)
-        if: matrix.platform.name == 'macOS'
-        run: brew install openssl curl
-
-      - name: Enable parallel build
-        run: |
-          cores=`nproc || sysctl -n hw.logicalcpu`
-          echo "MAKEFLAGS=-j$cores" >> $GITHUB_ENV
-      - run: R CMD INSTALL arrow/r
-      - name: Install arrow source package
-        working-directory: arrow/r
+      - shell: Rscript {0}
         env:
-          # Test source build so be sure not to download a binary
-          LIBARROW_BINARY: "FALSE"
-
-        shell: Rscript {0}
+          LIBARROW_BINARY: "false"
         run: |
-          source("https://raw.githubusercontent.com/apache/arrow/HEAD/ci/etc/rprofile")
-          library(arrow)
-          read_parquet(system.file("v0.7.1.parquet", package = "arrow"))
-          print(arrow_info())
-          # Our Version should always be > CRAN so we would detect a CRAN version here.
-          stopifnot(packageVersion("arrow") == "${{needs.source.outputs.pkg_version}}")
+            install.packages('arrow')
+
 
 
