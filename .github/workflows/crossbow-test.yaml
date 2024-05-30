@@ -9,6 +9,6 @@ jobs:
     name: Test
     runs-on: macos-12
     steps:
-      - run: echo "triggered by ${{github.event_name}} for ${{ github.sha }} on ${{ github.ref}}"
+      - run: echo " ${{github.event_name == 'pull_request' && github.head_ref || github.sha }}"
 
 
