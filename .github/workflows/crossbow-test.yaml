@@ -20,7 +20,8 @@ jobs:
           for i in "${a_var[@]}"; do
             echo $i
           done
-          for i in "${a_var[*]}"; do
+          a_var=(a_var)
+          for i in "${a_var[@]}"; do
             echo $i
           done
           
