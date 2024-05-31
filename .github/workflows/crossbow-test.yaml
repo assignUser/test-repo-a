@@ -17,6 +17,11 @@ jobs:
           a_var+=(5)
           echo "a_var=${a_var[*]}" >> $GITHUB_ENV
       - run: |
-          echo ${a_var[*]}
+          for i in "${a_var[@]}"; do
+            echo $i
+          done
+          for i in "${a_var[*]}"; do
+            echo $i
+          done
           
 
