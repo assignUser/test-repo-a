@@ -11,12 +11,12 @@ jobs:
     steps:
       - run: |
           a_var=(1 2)
-          echo "a_var=${a_var[@]}" >> $GITHUB_ENV
+          echo "a_var=${a_var[*]}" >> $GITHUB_ENV
       - run: |
-          echo ${a_var[@]}
+          echo ${a_var[*]}
           a_var+=(5)
-          echo "a_var=${a_var[@]}" >> $GITHUB_ENV
+          echo "a_var=${a_var[*]}" >> $GITHUB_ENV
       - run: |
-          echo ${a_var[@]}
+          echo ${a_var[*]}
           
 
