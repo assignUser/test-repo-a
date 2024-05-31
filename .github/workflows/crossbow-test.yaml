@@ -9,6 +9,14 @@ jobs:
     name: Test
     runs-on: macos-12
     steps:
-      - run: echo " ${{github.event_name == 'pull_request' && github.head_ref || github.sha }}"
-
+      - run: |
+          a_var=(1 2)
+          echo "a_var=$a_var" >> $GITHUB_ENV
+      - run: |
+          echo ${a_var[@]}
+          a_var+=(5)
+          echo "a_var=$a_var" >> $GITHUB_ENV
+      - run: |
+          echo ${a_var[@]}
+          
 
