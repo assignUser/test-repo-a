@@ -7,22 +7,6 @@ on:
 jobs:
    test-source:
     name: Test
-    runs-on: macos-12
+    runs-on: macos-14
     steps:
-      - run: |
-          a_var=(1 2)
-          echo "a_var=${a_var[*]}" >> $GITHUB_ENV
-      - run: |
-          echo ${a_var[*]}
-          a_var+=(5)
-          echo "a_var=${a_var[*]}" >> $GITHUB_ENV
-      - run: |
-          for i in "${a_var[@]}"; do
-            echo $i
-          done
-          a_var=($a_var)
-          for i in "${a_var[@]}"; do
-            echo $i
-          done
-          
-
+      - run: Rscript -e 'install.packages("arrow"); arrow::arrow_info()'
