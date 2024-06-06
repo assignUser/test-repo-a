@@ -13,4 +13,4 @@ jobs:
         blub:
           - {a: "a", b: "b"}
     steps:
-      - run: echo "${{ true && format('{0} + {1}', matrix.blub.a, matrix.blub.b)}}"
+      - run: echo "${{ github.event.pull_request.head.repo.full_name )}}"
