@@ -8,9 +8,5 @@ jobs:
    test-source:
     name: Test
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        blub:
-          - {a: "a", b: "b"}
     steps:
-      - run: echo "${{ github.event.pull_request.head.repo.full_name }}"
+      - run: gh release list --repo apache/arrow
