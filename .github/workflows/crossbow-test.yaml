@@ -7,7 +7,7 @@ on:
 jobs:
    test-source:
     name: Test
-    runs-on: ubuntu-latest
+    runs-on: macos-14
     steps:
       - run:   brew install \
                 bison boost ccache double-conversion flex fmt gflags glog \
