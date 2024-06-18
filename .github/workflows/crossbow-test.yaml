@@ -15,4 +15,4 @@ jobs:
                icu4c libevent libsodium lz4 lzo ninja openssl protobuf@21 \
                range-v3 simdjson snappy thrift xz xsimd zstd
             
-             brew link protobuf@21
+             brew link --force protobuf@21
