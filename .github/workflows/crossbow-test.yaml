@@ -10,9 +10,11 @@ jobs:
     runs-on: macos-14
     steps:
       - run: |
+             set -x
              brew install \
                bison boost ccache double-conversion flex fmt gflags glog \
                icu4c libevent libsodium lz4 lzo ninja openssl protobuf@21 \
                range-v3 simdjson snappy thrift xz xsimd zstd
+               
              brew --prefix protobuf
              brew link --force protobuf@21
