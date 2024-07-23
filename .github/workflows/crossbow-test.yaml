@@ -9,12 +9,9 @@ jobs:
     name: Test
     runs-on: macos-14
     steps:
-      - run: |
+      - env:
+          TEST: "true"
+        run: |
              set -x
-             brew install \
-               bison boost ccache double-conversion flex fmt gflags glog \
-               icu4c libevent libsodium lz4 lzo ninja openssl protobuf@21 \
-               range-v3 simdjson snappy thrift xz xsimd zstd
-               
-             brew --prefix protobuf
-             brew link --force protobuf@21
+             echo "yes: ${{ env.TEST == 'true' && 'yes'}}"
+             echo "nothing: ${{ env.TEST == 'tue' && 'yes'}}"
