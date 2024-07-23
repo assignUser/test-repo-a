@@ -10,8 +10,8 @@ jobs:
     runs-on: macos-14
     steps:
       - env:
-          TEST: "true"
+          TEST: "${{ false && 'true' || ''}}"
         run: |
              set -x
-             echo "yes: ${{ env.TEST == 'true' && 'yes'}}"
-             echo "nothing: ${{ env.TEST == 'tue' && 'yes'}}"
+             echo "yes: $TEST"
+
