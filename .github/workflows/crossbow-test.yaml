@@ -7,11 +7,10 @@ on:
 jobs:
    test-source:
     name: Test
-    runs-on: macos-14
+    runs-on: ubuntu-20.04
     steps:
       - env:
           TEST: "${{ false && 'true' || ''}}"
         run: |
-             set -x
-             echo "yes: $TEST"
+             find / -iname '*brotli*'
 
