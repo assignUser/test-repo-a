@@ -12,5 +12,5 @@ jobs:
       - env:
           TEST: "${{ false && 'true' || ''}}"
         run: |
-             find / -iname '*brotli*' | grep -v 'denied'
+             find /usr -iname '*lz4*'
 
