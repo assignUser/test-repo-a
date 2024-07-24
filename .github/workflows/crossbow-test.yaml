@@ -12,5 +12,6 @@ jobs:
       - env:
           TEST: "${{ false && 'true' || ''}}"
         run: |
-             find /usr -iname '*lz4*'
+             #find /usr -iname '*lz4*'
+             cat /usr/lib/x86_64-linux-gnu/pkgconfig/liblz4.pc
 
