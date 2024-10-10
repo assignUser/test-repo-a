@@ -10,6 +10,8 @@ jobs:
     runs-on: macos-12
     steps:
       - name: Setup tmate session
+        env:
+          GH_TOKEN: ${{ github.token }}
         uses: mxschmitt/action-tmate@v3
         with:
           limit-access-to-actor: false
