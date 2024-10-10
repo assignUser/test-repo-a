@@ -7,11 +7,7 @@ on:
 jobs:
    test-source:
     name: Test
-    runs-on: ubuntu-20.04
+    runs-on: macos-12
     steps:
-      - env:
-          TEST: "${{ false && 'true' || ''}}"
-        run: |
-             echo ${{ '' && 'nothing' || 'something' }}
-             echo ${{ 'a' && 'nothing' || 'something' }}
-
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
