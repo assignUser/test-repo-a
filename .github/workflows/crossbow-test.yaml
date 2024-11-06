@@ -13,4 +13,4 @@ jobs:
         timeout-minutes: 1
         run: sleep 70
       - if: always()
-        run: echo "${{ steps.blub. conclusion }}"
+        run: echo "${{ steps.blub.conclusion }}"
