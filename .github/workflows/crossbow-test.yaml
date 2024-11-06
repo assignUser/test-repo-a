@@ -12,5 +12,5 @@ jobs:
       - id: blub
         timeout-minutes: 1
         run: sleep 70
-      - if: always()
+      - if: ${{ !cancelled() }}
         run: echo "${{ steps.blub.conclusion }}"
