@@ -7,11 +7,10 @@ on:
 jobs:
    test-source:
     name: Test
-    runs-on: macos-12
+    runs-on: ubuntu-latest
     steps:
-      - name: Setup tmate session
-        env:
-          GH_TOKEN: ${{ github.token }}
-        uses: mxschmitt/action-tmate@v3
-        with:
-          limit-access-to-actor: false
+      - id: blub
+        timeout-minutes: 1
+        run: sleep 70
+      - if: always()
+        run: echo "${{ steps.blub. conclusion }}"
