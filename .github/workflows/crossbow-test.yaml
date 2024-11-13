@@ -17,6 +17,6 @@ jobs:
           match = re.search(r"^(.+?)(\(.+\))?: (.+)", title)
           if match is None:
             print("::error:: Please follow conventional commit guidelines in CONTRIBUTING.md")
-            sys.exit(1)
+            exit(1)
           else:
-            sys.exit(0)
+            exit(0)
