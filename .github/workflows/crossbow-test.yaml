@@ -18,5 +18,5 @@ jobs:
           if match is None:
             print("::error:: Please follow conventional commit guidelines in CONTRIBUTING.md")
             sys.exit(1)
-          else
+          else:
             sys.exit(0)
