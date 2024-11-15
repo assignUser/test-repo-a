@@ -7,11 +7,12 @@ jobs:
     name: Test
     runs-on: ubuntu-latest
     steps:
+
       - uses: actions/download-artifact@v4
         with:
-          name: go-ubuntu-latest
+          name: go-*
           path: adbc/go/adbc/pkg
-          merge-multiple: false
+          merge-multiple: true
           repository: apache/arrow-adbc
           run-id: 11848882525
       - run: ls -R
