@@ -31,7 +31,7 @@ jobs:
             adbc/go/adbc/pkg/libadbc_driver_snowflake.dll
       - uses: actions/download-artifact@v4
         with:
-          name: go-*
+          pattern: go-*
           path: adbc/go/adbc/pkg
           merge-multiple: true
       - run: ls -R adbc
