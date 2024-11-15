@@ -7,15 +7,13 @@ jobs:
     name: Test
     runs-on: ubuntu-latest
     steps:
-      - run: touch blub.txt
-      - uses: actions/upload-artifact@v4
-        with:
-          name: blub
-          path: blub.txt
       - uses: actions/download-artifact@v4
         with:
-          name: blub
-          path: a/dir
+          name: go-ubuntu-latest
+          path: adbc/go/adbc/pkg
+          merge-multiple: false
+          repository: apache/arrow-adbc
+          run-id: 11848882525
       - run: ls -R
 
           
