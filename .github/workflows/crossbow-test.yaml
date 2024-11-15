@@ -7,14 +7,33 @@ jobs:
     name: Test
     runs-on: ubuntu-latest
     steps:
-
+      - run: |
+          mkdir -p adbc/go/adbc/pkg/
+          touch adbc/go/adbc/pkg/libadbc_driver_flightsql.so
+          touch adbc/go/adbc/pkg/libadbc_driver_snowflake.so
+          touch adbc/go/adbc/pkg/libadbc_driver_flightsql.dll
+          touch adbc/go/adbc/pkg/libadbc_driver_snowflake.dll
+      - name: Upload Go binaries
+        uses: actions/upload-artifact@v4
+        with:
+          name: go-ubuntu
+          retention-days: 1
+          path: |
+            adbc/go/adbc/pkg/libadbc_driver_flightsql.so
+            adbc/go/adbc/pkg/libadbc_driver_snowflake.so
+      - name: Upload Go binaries
+        uses: actions/upload-artifact@v4
+        with:
+          name: go-windows
+          retention-days: 1
+          path: |
+            adbc/go/adbc/pkg/libadbc_driver_flightsql.dll
+            adbc/go/adbc/pkg/libadbc_driver_snowflake.dll
       - uses: actions/download-artifact@v4
         with:
           name: go-*
           path: adbc/go/adbc/pkg
           merge-multiple: true
-          repository: apache/arrow-adbc
-          run-id: 11848882525
-      - run: ls -R
+      - run: ls -R adbc
 
           
