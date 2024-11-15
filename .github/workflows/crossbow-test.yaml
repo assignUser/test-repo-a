@@ -19,16 +19,16 @@ jobs:
           name: go-ubuntu
           retention-days: 1
           path: |
-            adbc/go/adbc/pkg/libadbc_driver_flightsql.so
-            adbc/go/adbc/pkg/libadbc_driver_snowflake.so
+            adbc/go/adbc/pkg/libadbc_driver_flightsql.*
+            adbc/go/adbc/pkg/libadbc_driver_snowflake.*
       - name: Upload Go binaries
         uses: actions/upload-artifact@v4
         with:
           name: go-windows
           retention-days: 1
           path: |
-            adbc/go/adbc/pkg/libadbc_driver_flightsql.dll
-            adbc/go/adbc/pkg/libadbc_driver_snowflake.dll
+            adbc/go/adbc/pkg/libadbc_driver_flightsql.*
+            adbc/go/adbc/pkg/libadbc_driver_snowflake.*
       - run: rm -rf adbc
       - uses: actions/download-artifact@v4
         with:
