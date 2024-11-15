@@ -7,16 +7,15 @@ jobs:
     name: Test
     runs-on: ubuntu-latest
     steps:
-      - shell: python
-        env:
-          title: ${{ github.event.pull_request.title }}
-        run: |
-          import re 
-          import os
-          title = os.environ["title"]
-          match = re.search(r"^(.+?)(\(.+\))?: (.+)", title)
-          if match is None:
-            print("::error::Please follow conventional commit guidelines in [CONTRIBUTING.md](https://github.com/facebookincubator/velox/blob/main/CONTRIBUTING.md#commit-messages)")
-            exit(1)
-          else:
-            exit(0)
+      - run: touch blub.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: blub
+          path: blub.txt
+      - uses: actions/download-artifact@v4
+        with:
+          name: blub
+          path: a/dir
+     - run: ls -R
+
+          
