@@ -16,6 +16,6 @@ jobs:
         with:
           name: blub
           path: a/dir
-     - run: ls -R
+      - run: ls -R
 
           
