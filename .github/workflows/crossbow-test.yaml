@@ -8,5 +8,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo "blub: $GITHUB_TOKEN"
+          echo "print('hello')" > pip.py
+          pip
           
