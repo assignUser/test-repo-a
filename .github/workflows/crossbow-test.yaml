@@ -10,5 +10,5 @@ jobs:
       - continue-on-error: true
         id: blub
         run: exit 1
-      - run: echo "${{ steps.check-deps.conclusion }}"
+      - run: echo "${{ steps.blub.conclusion }}"
           
