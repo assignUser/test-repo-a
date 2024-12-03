@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
     inputs:
      boolean:
-       type: bool
+       type: boolean
        default: false
      something:
        type: choice
