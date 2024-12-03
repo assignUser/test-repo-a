@@ -2,9 +2,14 @@ name: MacCrossbow
 on:
   workflow_dispatch:
     inputs:
+     boolean:
+       type: bool
+       default: false
      something:
-       description: 'An input with default'
-       default: 'default'
+       type: choice
+       options:
+         - "first"
+         - "second"
 
 
 jobs:
