@@ -17,4 +17,5 @@ jobs:
     name: Test empty inputs
     runs-on: ubuntu-latest
     steps:
-      - run: echo "${{ inputs.something }}"
+      - if: ${{inputs.boolean}}
+        run: echo "${{ inputs.something}}"
