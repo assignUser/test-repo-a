@@ -7,8 +7,25 @@ jobs:
     name: Test
     runs-on: ubuntu-latest
     steps:
-      - continue-on-error: true
-        id: blub
-        run: exit 1
-      - run: echo "${{ steps.blub.conclusion }}"
+      - run: |
+          mkdir results/a
+          touch number.txt
+          touch results/something.json
+          touch results/a/res.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: results
+          path: |
+            number.txt
+            results/
+   get:
+    runs-on: ubuntu-latest
+    needs: 'test-source'
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: results
+          path: /tmp/artifacts
+      - run: ls -R /tmp/artifacts
+    
           
