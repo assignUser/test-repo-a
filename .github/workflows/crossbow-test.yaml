@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          mkdir results/a
+          mkdir -p results/a
           touch number.txt
           touch results/something.json
           touch results/a/res.json
