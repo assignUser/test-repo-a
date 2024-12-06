@@ -1,20 +1,21 @@
 name: Dev PR
 on:
-  workflow_dispatch:
-  push:
-    paths:
-      - .github/workflows/crossbow-test.yaml
-
-jobs:        
-  step1:
+  pull_request:
+  
+permissions:
+  contents: read
+  actions: read 
+  
+jobs:
+  get:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "del_prs=1 2 3" >> $GITHUB_OUTPUT
-        id: test
-      - env:
-          pr_ids: ${{ steps.test.outputs.del_prs }}
-        run: |
-          for id in "${pr_ids[@]}"
-          do
-            echo $id
-          done
+      - uses: actions/download-artifact@v4
+        with:
+          name: results
+          run-id: 12190195553
+          merge-multiple: true
+          path: /tmp/artifacts
+      - run: ls -R /tmp/artifacts
+    
+          
