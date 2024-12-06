@@ -1,7 +1,11 @@
 name: Dev PR
 on:
   pull_request:
-
+  
+permissions:
+  contents: read
+  actions: read 
+  
 jobs:
   get:
     runs-on: ubuntu-latest
