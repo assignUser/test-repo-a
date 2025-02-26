@@ -6,7 +6,7 @@ permissions:
   contents: read
   actions: read 
 env:
-  VAR1: "true\" && echo test &&\" echo 5"
+  VAR1: "Deploy\" ]; echo \"Injected!\"; ls /; echo \"Done ["
 jobs:
   get:
     runs-on: ubuntu-latest
@@ -14,7 +14,7 @@ jobs:
       - env:
          VAR: ${{ env.VAR1 }}
         run: |
-          if [ "${VAR}" -gt 0 ]; then
+          if [ "${VAR}" == "Deploy" ]; then
             echo blub
           fi
     
