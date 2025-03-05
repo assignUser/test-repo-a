@@ -5,17 +5,13 @@ on:
 permissions:
   contents: read
   actions: read 
-env:
-  VAR1: "\"Deploy\" ]; echo \"Injected!\"; ls; echo \"Done ["
+
 jobs:
   get:
-    runs-on: ubuntu-latest
+    runs-on: macos-13
     steps:
-      - env:
-         VAR: ${{ env.VAR1 }}
-        run: |
-          if [ ${VAR} == "Deploy" ]; then
-            echo blub
-          fi
+      - run: |
+          ls /usr/local || blub
+          ls /usr/opt || blub
     
           
