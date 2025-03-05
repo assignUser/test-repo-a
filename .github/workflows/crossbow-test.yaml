@@ -11,7 +11,7 @@ jobs:
     runs-on: macos-14
     steps:
       - run: |
-          ls /usr/local || echo blub
+          ls /usr/local/opt || echo blub
           ls /usr/opt || echo blub
     
           
