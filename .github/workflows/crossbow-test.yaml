@@ -8,10 +8,10 @@ permissions:
 
 jobs:
   get:
-    runs-on: macos-13
+    runs-on: macos-14
     steps:
       - run: |
-          ls /usr/local || blub
-          ls /usr/opt || blub
+          ls /usr/local || echo blub
+          ls /usr/opt || echo blub
     
           
