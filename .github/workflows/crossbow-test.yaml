@@ -9,6 +9,5 @@ permissions:
 jobs:
   get:
     runs-on: ubuntu-latest
-d
     steps:
       - run: pipx install uv
