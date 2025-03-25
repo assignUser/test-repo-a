@@ -9,23 +9,6 @@ permissions:
 jobs:
   get:
     runs-on: ubuntu-latest
-    outputs:
-      build-id: ${{ steps.build-upload.outputs.artifact-id }}
+d
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/upload-artifact@v4
-        id: build-upload
-        with:
-          name: build
-          path: ${{ github.workspace }}
-  remove:
-    needs: get
-    runs-on: ubuntu-latest
-    steps:
-      - run: touch /tmp/empty
-      - uses: actions/upload-artifact@v4
-        with:
-          name: build
-          overwrite: true
-          path: /tmp/empty
-          
+      - run: pipx install uv
