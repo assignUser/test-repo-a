@@ -12,8 +12,8 @@ jobs:
     steps:
       - env:
           EXTRA_CMAKE_FLAGS: > 
-            "-DVELOX_ENABLE_ARROW=ON
+             -DVELOX_ENABLE_ARROW=ON
              -DVELOX_MONO_LIBRARY=ON
-             -DVELOX_BUILD_PYTHON_PACKAGE=ON"
+             -DVELOX_BUILD_PYTHON_PACKAGE=ON
 
         run: echo $EXTRA_CMAKE_FLAGS
