@@ -10,4 +10,10 @@ jobs:
   get:
     runs-on: ubuntu-latest
     steps:
-      - run: pipx install uv
+      - env:
+          EXTRA_CMAKE_FLAGS: > 
+            "-DVELOX_ENABLE_ARROW=ON
+             -DVELOX_MONO_LIBRARY=ON
+             -DVELOX_BUILD_PYTHON_PACKAGE=ON"
+
+        run: echo $EXTRA_CMAKE_FLAGS
