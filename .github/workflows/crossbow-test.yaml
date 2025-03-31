@@ -10,4 +10,6 @@ jobs:
   get:
     runs-on: ubuntu-latest
     steps:
-      - uses: aquasecurity/trivy-action@0.30.0
+        - uses: aquasecurity/trivy-action@0.30.0
+          with:
+            skip-setup-trivy: true
