@@ -8,8 +8,6 @@ permissions:
 
 jobs:
   get:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04-arm
     steps:
-        - uses: aquasecurity/trivy-action@0.30.0
-          with:
-            skip-setup-trivy: true
+        - run: lscpu
