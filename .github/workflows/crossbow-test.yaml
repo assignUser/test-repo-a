@@ -8,6 +8,6 @@ permissions:
 
 jobs:
   get:
-    runs-on: ubuntu-22.04-arm
+    runs-on: ubuntu-22.04
     steps:
-        - run: lscpu
+        - uses: r-lib/actions/setup-r@v2
