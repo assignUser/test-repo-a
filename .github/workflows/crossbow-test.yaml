@@ -13,7 +13,9 @@ jobs:
       - env:
           VERSION: "20.0.0"
           RC: "0"
+        shell: cmd
         run: |
+          echo "apache-arrow-%ARROW_VERSION%-rc%RC_NUMBER%"
           set TAG=apache-arrow-%ARROW_VERSION%-rc%RC_NUMBER%
           echo Tag: %TAG%
 
