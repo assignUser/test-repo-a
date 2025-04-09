@@ -10,4 +10,9 @@ jobs:
   get:
     runs-on: ubuntu-22.04
     steps:
-        - uses: r-lib/actions/setup-r@v2
+        - run: echo "blub=test" >> $GITHUB_ENV
+  get2:
+    runs-on: ubuntu-22.04
+    needs: get
+    steps:
+        - run: echo $blub
