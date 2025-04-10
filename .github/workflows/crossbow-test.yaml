@@ -8,15 +8,7 @@ permissions:
 
 jobs:
   get:
-    runs-on: windows-latest
+    runs-on: macos-13
     steps:
-      - env:
-          VERSION: "20.0.0"
-          RC: "0"
-        shell: cmd
-        run: |
-          echo "apache-arrow-%VERSION%-rc%RC%"
-          set TAG=apache-arrow-%VERSION%-rc%RC%
-          echo Tag: %TAG%
-
+      - run: pipx install cmake==3.31
         
