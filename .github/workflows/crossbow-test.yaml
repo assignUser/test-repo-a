@@ -10,5 +10,5 @@ jobs:
   get:
     runs-on: macos-13
     steps:
-      - run: pipx install cmake==3.31
+      - run: which cmake; cmake --version
         
