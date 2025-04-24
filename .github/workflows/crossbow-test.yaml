@@ -1,16 +1,16 @@
 name: Dev PR
 on:
   pull_request:
-  
-permissions:
-  contents: read
-  actions: read
 
 jobs:
   get:
-    runs-on: macos-13
+    strategy:
+      fail-fast: false
+      matrix:
+        os: ["macos-14", "ubuntu-22.04", "ubuntu-24.04-arm"]
+    runs-on: ${{ matrix.os }}
     steps:
       - run: |
           pipx install --force cmake==3.31
-          cmake --version
+      - run: cmake --version
         
