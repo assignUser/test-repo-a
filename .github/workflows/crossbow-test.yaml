@@ -7,6 +7,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
+              sudo apt update
+              sudo apt install mailutils
               # Configuration
               TO="builds@arrow.apache.org"
               SUBJECT="Nightly Report Test Mail"
