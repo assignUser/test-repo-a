@@ -4,13 +4,13 @@ on:
 
 jobs:
   get:
-    strategy:
-      fail-fast: false
-      matrix:
-        os: ["macos-14", "ubuntu-22.04", "ubuntu-24.04-arm"]
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
     steps:
       - run: |
-          pipx install --force cmake==3.31
-      - run: cmake --version
-        
+              # Configuration
+              TO="builds@arrow.apache.org"
+              SUBJECT="Nightly Report Test Mail"
+              BODY="Testing delivery via local MTA."
+              
+              # Send the email
+              echo -e "$BODY" | mail -s "$SUBJECT" "$TO"
