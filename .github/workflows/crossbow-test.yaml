@@ -7,12 +7,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-              sudo apt update
-              sudo apt install mailutils
-              # Configuration
-              TO="builds@arrow.apache.org"
-              SUBJECT="Nightly Report Test Mail"
-              BODY="Testing delivery via local MTA."
-              
-              # Send the email
-              echo -e "$BODY" | mail -s "$SUBJECT" "$TO"
+          uv --help || echo blub
+          python -m pip install uv
