@@ -16,7 +16,7 @@ jobs:
       - run: |
           echo test
   third:
-    if: s{{ !cancelled() || (needs.get.result == 'success' && needs.second.result == 'skipped') }}
+    if: ${{ !cancelled() || (needs.get.result == 'success' && needs.second.result == 'skipped') }}
     needs: [second, get]
     runs-on: ubuntu-latest
     steps:
