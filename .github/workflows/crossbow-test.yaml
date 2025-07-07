@@ -16,7 +16,7 @@ jobs:
       - run: |
           echo test
   third:
-    if: ${{ success() && github.event_name == 'push' }}
+    if: ${{ success() && github.event_name == 'pull_request' }}
     needs: [second, get]
     runs-on: ubuntu-latest
     steps:
