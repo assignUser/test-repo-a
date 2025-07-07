@@ -16,7 +16,7 @@ jobs:
       - run: |
           echo test
   third:
-    needs: second
+    needs: [second, get]
     runs-on: ubuntu-latest
     steps:
       - run: |
