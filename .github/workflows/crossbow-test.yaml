@@ -7,5 +7,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          uv --help || echo blub
-          python -m pip install uv
+          echo test
+  second:
+    if: false
+    needs: get
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo test
+  third:
+    needs: second
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo test
