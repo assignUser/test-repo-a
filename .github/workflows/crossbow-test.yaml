@@ -9,7 +9,6 @@ jobs:
       - run: |
           echo test
   second:
-    if: false
     needs: get
     runs-on: ubuntu-latest
     steps:
