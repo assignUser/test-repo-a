@@ -16,7 +16,7 @@ jobs:
       - run: |
           echo test
   third:
-    if: ${{ success() && github.event_name == 'pull_request' }}
+    if: s{{ !cancelled() || (needs.get.result == 'success' && needs.second.result == 'skipped') }}
     needs: [second, get]
     runs-on: ubuntu-latest
     steps:
