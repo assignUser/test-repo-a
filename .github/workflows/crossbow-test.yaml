@@ -7,17 +7,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo test
-  second:
-    needs: get
-    runs-on: ubuntu-latest
-    steps:
-      - run: |
-          echo test
-  third:
-    if: ${{ needs.get.result == 'success' && needs.second.result == 'skipped' }}
-    needs: [second, get]
-    runs-on: ubuntu-latest
-    steps:
-      - run: |
-          echo test
+          cmake --version
+          
