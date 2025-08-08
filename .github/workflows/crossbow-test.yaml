@@ -8,7 +8,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: |
-          stat -c "%u:%g $GITHUB_WORKSPACE
-          stat -c "%u:%g ~
-          stat -c "%u:%g R
+          stat -c "%u:%g" $GITHUB_WORKSPACE
+          stat -c "%u:%g" ~
+          stat -c "%u:%g" R
 
