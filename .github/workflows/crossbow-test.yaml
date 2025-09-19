@@ -8,6 +8,8 @@ jobs:
     steps:
       - run: |
           exit 1
-      - if: ${{ !cancelled() && true }}
-        run: echo Hi!
-
+      - env:
+          VAR: ${{ false && 'A' || '' }}
+        run: |
+          echo $VAR
+          [ -z "${VAR+x}" ] && echo "unset"
