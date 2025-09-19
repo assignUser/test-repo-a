@@ -9,5 +9,5 @@ jobs:
       - env:
           VAR: ${{ false && 'A' || '' }}
         run: |
-          echo $VAR
-          [ -z "${VAR+x}" ] && echo "unset"
+          echo "var_${VAR}_"
+          [ -z "${VAR+x}" ] && echo "unset" || echo set
