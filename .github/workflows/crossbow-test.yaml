@@ -6,8 +6,8 @@ jobs:
   get:
     runs-on: ubuntu-latest
     steps:
-      - env:
-          VAR: ${{ false && 'A' || '' }}
-        run: |
-          echo "var_${VAR}_"
-          [ -z "${VAR+x}" ] && echo "unset" || echo set
+      - run: |
+          echo ${{ false || false }}
+          echo ${{ true || false }}
+          echo ${{ false || true }}
+          
