@@ -9,10 +9,10 @@ jobs:
     strategy:
       matrix:
         var: ["foo", "bar", "baz"]
-        opt: [${{ env.opt }}]
+        opt: ["${{ env.opt }}"]
         exclude:
           - var: "baz"
-            opt: 6
+            opt: "6"
     if: ${{ matrix.bla == 1 }}
     steps:
       - run: |
