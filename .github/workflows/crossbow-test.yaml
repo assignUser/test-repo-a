@@ -1,15 +1,18 @@
 name: Dev PR
 on:
+  workflow_dispatch:
+    inputs:
+      opt:
+        default: "5"
   pull_request:
-env:
-  opt: 5
+
 jobs:
   get:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         var: ["foo", "bar", "baz"]
-        opt: ["${{ env.opt }}"]
+        opt: ["${{ inputs.opt || 5 }}"]
         exclude:
           - var: "baz"
             opt: "6"
