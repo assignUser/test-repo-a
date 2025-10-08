@@ -16,7 +16,6 @@ jobs:
         exclude:
           - var: "baz"
             opt: "6"
-    if: ${{ matrix.bla == 1 }}
     steps:
       - run: |
           echo ${{ false || false }}
