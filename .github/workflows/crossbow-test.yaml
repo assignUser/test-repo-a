@@ -1,13 +1,18 @@
 name: Dev PR
 on:
   pull_request:
-
+env:
+  opt: 5
 jobs:
   get:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        bla: [1, 2]
+        var: ["foo", "bar", "baz"]
+        opt: [${{ env.opt }}]
+        exclude:
+          - var: "baz"
+            opt: 6
     if: ${{ matrix.bla == 1 }}
     steps:
       - run: |
