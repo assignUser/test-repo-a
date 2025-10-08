@@ -5,6 +5,10 @@ on:
 jobs:
   get:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        bla: [1, 2]
+    if: ${{ matrix.bla == 1 }}
     steps:
       - run: |
           echo ${{ false || false }}
