@@ -9,16 +9,7 @@ on:
 jobs:
   get:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        var: ["foo", "bar", "baz"]
-        opt: ["${{ inputs.opt || 5 }}"]
-        exclude:
-          - var: "baz"
-            opt: "6"
     steps:
       - run: |
-          echo ${{ false || false }}
-          echo ${{ true || false }}
-          echo ${{ false || true }}
-          
+          echo ${{ fromJSON("1+1") }}
+                    
