@@ -16,6 +16,6 @@ jobs:
       - shell: python
         run: |
           import os
-          os.getenv("VAR1") is None
-          os.getenv("VAR2") is None
+          print(os.getenv("VAR1") is None,
+          os.getenv("VAR2") is None)
                     
