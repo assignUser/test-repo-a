@@ -9,7 +9,12 @@ on:
 jobs:
   get:
     runs-on: ubuntu-latest
+    env:
+      VAR1: ""
+      VAR2: ${{ github.event.push }}
     steps:
       - run: |
-          echo ${{ fromJSON("1+1") }}
+          import os
+          os.getenv("VAR1") is None
+          os.getenv("VAR2") is None
                     
