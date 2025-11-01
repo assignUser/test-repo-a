@@ -13,9 +13,6 @@ jobs:
       VAR1: ""
       VAR2: ${{ github.event.push }}
     steps:
-      - shell: python
-        run: |
-          import os
-          print(os.getenv("VAR1") is None,
-          os.getenv("VAR2") is None)
+      - run: |
+          echo "GITHUB_ACTIONS=$GITHUB_ACTIONS"
                     
