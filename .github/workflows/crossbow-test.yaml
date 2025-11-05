@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       VAR1: ""
-      VAR2: ${{ 'bla/' + github.base_ref }}
+      VAR2: ${{ format('bla/{}', github.base_ref) }}
     steps:
       - run: |
           echo $VAR2
