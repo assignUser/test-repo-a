@@ -7,7 +7,7 @@ jobs:
   get:
     runs-on: ubuntu-latest
     outputs:
-      bla: ${{ steps.test.outputs.bla }}
+      bla: ${{ fromJSON(steps.test.outputs.bla) }}
     steps:
       - id: test
         run: |
