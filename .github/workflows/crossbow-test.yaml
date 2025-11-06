@@ -1,9 +1,6 @@
 name: Dev PR
 on:
   workflow_dispatch:
-    inputs:
-      opt:
-        default: "5"
   pull_request:
 
 jobs:
@@ -13,6 +10,9 @@ jobs:
       VAR1: ""
       VAR2: ${{ format('bla/{0}', github.base_ref) }}
     steps:
-      - run: |
-          echo $VAR2
+      - id: test
+        run: |
+          echo "bla=false" >> "$GITHUB_OUTPUT"
+      - if: ${{ steps.test.outputs.bla }}
+        run: echo Shouldnt run
                     
