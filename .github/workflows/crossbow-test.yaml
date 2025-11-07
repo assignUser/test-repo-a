@@ -6,6 +6,7 @@ on:
 jobs:
   get:
     runs-on: ubuntu-latest
+    needs: false
     outputs:
       bla: ${{ toJSON(steps.test.outputs.bla) }}
     steps:
@@ -16,8 +17,8 @@ jobs:
         run: echo Shouldnt run but step outputs are strings
   job2:
     needs: get
-    if: ${{ needs.get.outputs.bla }}
+    if: always()
     runs-on: ubuntu-latest
     steps:
-      - run: echo Shouldnt run but job outputs are strings
+      - run: echo "${{ toJSON( jobs) }}"
                     
