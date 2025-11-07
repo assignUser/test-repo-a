@@ -20,5 +20,5 @@ jobs:
     if: always()
     runs-on: ubuntu-latest
     steps:
-      - run: echo "${{ toJSON( jobs) }}"
+      - run: echo "${{ toJSON( needs.get) }}"
                     
