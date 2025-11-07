@@ -6,7 +6,6 @@ on:
 jobs:
   get:
     runs-on: ubuntu-latest
-    if: false
     outputs:
       bla: ${{ toJSON(steps.test.outputs.bla) }}
     steps:
