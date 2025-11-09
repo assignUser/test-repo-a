@@ -5,19 +5,10 @@ on:
 
 jobs:
   get:
-    runs-on: ubuntu-latest
-    outputs:
-      bla: ${{ toJSON(steps.test.outputs.bla) }}
+    runs-on: ${{ matrix.runner }}
+    strategy:
+      matrix:
+        runner: [macos-15-intel, macos-15]
     steps:
-      - id: test
-        run: |
-          echo "bla=false" >> "$GITHUB_OUTPUT"
-      - if: ${{ steps.test.outputs.bla }}
-        run: echo Shouldnt run but step outputs are strings
-  job2:
-    needs: get
-    if: always()
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "${{ toJSON( needs.get) }}"
+      - run: python3 -m sysconfig | grep MACOSX_DEPLOYMENT_TARGET
                     
