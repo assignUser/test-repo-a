@@ -10,5 +10,6 @@ jobs:
       matrix:
         runner: [macos-15-intel, macos-15]
     steps:
-      - run: python3 -m sysconfig | grep MACOSX_DEPLOYMENT_TARGET
+      - run: brew install python3
+      - run: $(brew --prefix python)/libexec/bin/python -m sysconfig | grep MACOSX_DEPLOYMENT_TARGET
                     
