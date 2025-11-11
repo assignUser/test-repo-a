@@ -13,5 +13,6 @@ jobs:
            sudo dpkg -i cuda-keyring_1.1-1_all.deb
            sudo apt update
            sudo apt install cuda-nvcc-12-8
-           which nvcc
+           which  cuda-nvcc-12-8 || echo not found
+           find /usr -name '*nvcc*'
                     
