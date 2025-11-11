@@ -6,7 +6,7 @@ on:
 jobs:
   get:
     runs-on: ubuntu-latest
-  steps:
+    steps:
       - uses: actions/setup-python@v6
       - run: |
            wget https://developer.download.nvidia.com/compute/cuda/repos/<distro>/<arch>/cuda-keyring_1.1-1_all.deb
