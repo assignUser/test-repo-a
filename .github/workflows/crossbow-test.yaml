@@ -7,6 +7,7 @@ on:
 
 jobs:        
   step1:
+    name: Another Name
     runs-on: ubuntu-latest
     steps:
       - run: echo "del_prs=1 2 3" >> $GITHUB_OUTPUT
