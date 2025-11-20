@@ -10,7 +10,7 @@ jobs:
     steps:
       - run: |
           # Re-used from free-disk-space github action.
-          getAvailableSpace() { df -h . }
+          getAvailableSpace() { df -h .; }
           # Show before
           echo "Original available disk space: " $(getAvailableSpace)
           # Remove DotNet.
