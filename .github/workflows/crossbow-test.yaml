@@ -7,12 +7,21 @@ jobs:
   get:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/setup-python@v6
       - run: |
-           wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64//cuda-keyring_1.1-1_all.deb
-           sudo dpkg -i cuda-keyring_1.1-1_all.deb
-           sudo apt update
-           sudo apt install cuda-nvcc-12-8
-           which  cuda-nvcc-12-8 || echo not found
-           find /usr -name '*nvcc*'
+          # Re-used from free-disk-space github action.
+          getAvailableSpace() { df -h . }
+          # Show before
+          echo "Original available disk space: " $(getAvailableSpace)
+          # Remove DotNet.
+          sudo rm -rf /usr/share/dotnet || true
+          # Remove android
+          sudo rm -rf /usr/local/lib/android || true
+          # Remove CodeQL
+          sudo rm -rf /opt/hostedtoolcache/CodeQL || true
+          # Remove Haskell
+          sudo rm -rf /opt/ghc || true
+          sudo rm -rf /usr/local/.ghcup || true
+          # Show after
+          echo "New available disk space: " $(getAvailableSpace)
+
                     
