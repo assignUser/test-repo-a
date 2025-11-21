@@ -9,6 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
+          pipx install uv
           uv --version
           # Re-used from free-disk-space github action.
           getAvailableSpace() { df -h .; }
