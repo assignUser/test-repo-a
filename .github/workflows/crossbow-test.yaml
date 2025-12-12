@@ -8,11 +8,13 @@ jobs:
     name: Another Name
     runs-on: ubuntu-latest
     steps:
-      - run: |
-          sudo apt-get update && sudo apt-get install -yqq lcov
-          lcov --version
-          lcov --help
-          man lcov | grep source-dir
-
+      - id: step-a
+        run: echo hi
+      - if: ${{ steps.step-a.outputs.foo }}
+        run: echo bar
+      - id: step-b
+        run: echo foo=bar >> $GITHUB_OUTPUT      
+      - if: ${{ steps.step-b.outputs.foo }}
+        run: echo bar
 
                     
