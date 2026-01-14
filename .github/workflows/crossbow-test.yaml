@@ -8,13 +8,14 @@ jobs:
     name: Another Name
     runs-on: ubuntu-latest
     steps:
-      - id: step-a
-        run: echo hi
-      - if: ${{ steps.step-a.outputs.foo }}
-        run: echo bar
-      - id: step-b
-        run: echo "foo=" >> $GITHUB_OUTPUT      
-      - if: ${{ steps.step-b.outputs.foo }}
-        run: echo bar
+      - env:
+          ARGS: "'foo' 'bar' 'baz'"
+        run: |
+          echo "$ARGS"
+          echo $ARGS
+          for a in $ARGS; do
+            echo $a
+          done
+      
 
                     
