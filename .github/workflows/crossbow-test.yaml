@@ -9,13 +9,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - env:
-          ARGS: "'foo' 'bar' 'baz'"
+          ARGS: "/usr/* /tmp/*"
         run: |
-          echo "$ARGS"
           echo $ARGS
-          for a in $ARGS; do
-            echo $a
-          done
+          set -f 
+          echo $ARGS
+          
       
 
                     
