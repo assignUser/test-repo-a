@@ -6,14 +6,16 @@ on:
 jobs:        
   step1:
     name: Another Name
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest-arm
     steps:
       - env:
-          ARGS: "/usr/* /tmp/*"
+          ARGS: "false"
         run: |
           echo $ARGS
-          set -f 
+          export ARGS=true
+          arch
           echo $ARGS
+
           
       
 
