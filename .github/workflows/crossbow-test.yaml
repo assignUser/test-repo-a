@@ -6,15 +6,12 @@ on:
 jobs:        
   step1:
     name: Another Name
-    runs-on: ubuntu-22.04-arm 
+    runs-on: ubuntu-latest
     steps:
       - env:
           ARGS: "false"
         run: |
-          echo $ARGS
-          export ARGS=true
-          arch
-          echo $ARGS
+          grep -E 'avx512' /proc/cpuinfo
 
           
       
