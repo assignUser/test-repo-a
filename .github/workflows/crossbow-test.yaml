@@ -10,7 +10,7 @@ jobs:
     name: Another Name
     runs-on: ubuntu-latest
     steps:
-      - run: pgrep -f Runner.Worker
+      - run: ulimit -n
       
 
                     
