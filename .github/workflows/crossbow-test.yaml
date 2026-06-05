@@ -10,7 +10,11 @@ jobs:
     name: Another Name
     runs-on: ubuntu-latest
     steps:
-      - run: ulimit -n
+      - run: |
+          mkdir -p a b
+          touch a/foo b/bar
+          tar --version
+          tar -czfv ./a ./b
       
 
                     
