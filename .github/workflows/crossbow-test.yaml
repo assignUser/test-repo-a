@@ -15,6 +15,7 @@ jobs:
           touch a/foo b/bar
           tar --version
           tar -czfv ./a ./b
+          ls -la
       
 
                     
